@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="sla.css" />
+  </head>
+  
+  <body>
+    
+    <h1 id="title">Calculadora Financeira - SM.Art</h1>
+
+    <div class="parent">
+      <div class="calc1">
+        <span id="cm40">Para acervos com obras até 40cm:</span>
+        <p>Quantidade de obras:</p>
+        <input type="text" id="qtdObras1">
+        <p>Tempo desde a ultima restauração (em anos):</p>
+        <input id="rest1" /> <br> <br>
+      
+        <span id="cm40">Para acervos com obras de 41 até 100cm:</span>
+        <p>Quantidade de obras:</p>
+        <input type="text" id="qtdObras2">
+        <p>Tempo desde a ultima restauração (em anos):</p>
+        <input id="rest2" /> <br> <br>
+     
+
+        <span id="cm40">Para acervos com obras de 100cm ou mais:</span>
+        <p>Quantidade de obras:</p>
+        <input type="text" id="qtdObras3">
+        <p>Tempo desde a ultima restauração (em anos):</p>
+        <input id="rest3" /> <br> <br>
+      </div>
+
+      <button class="botao" onclick="Gastos();animacao();">Calcular gastos</button>
+      <button class="botao" onclick="Limpar();animacaolimpar();">Limpar</button> <br />
+      <div id="showGasto"></div>
+
+      <!-- <p id="salaNum">Número de salas que contém obras a serem monitoradas</p>
+      <input id="Numsala" /> -->
+
+    <!--   <button onclick="FzrCalculo()">Calcular</button>
+    </div> -->
+
+    <div id="resultados" class="resultados">
+      <div id="results"></div>
+      <div id="results2"></div>
+      <div id="results3"></div>
+      <div id="nSalas"></div>
+    </div>
+  </body>
+</html>
+
+<script src="calcjs.js"></script>
