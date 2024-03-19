@@ -8,33 +8,37 @@
   </head>
   
   <body>
-    
-    <h1 id="title">Calculadora Financeira - SM.Art</h1>
 
-    <div class="parent">
-      <div class="calc1">
-        <span id="cm40">Para acervos com obras até 40cm:</span>
+    <div class="elemento1">
+      <h1 id="title">Calculadora Financeira</h1>
+      <img class="logo" src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="">
+
+    </div>
+    <div class="elementosInput">
+      <div class="boxDeInput">
+        <span id="tamanhoObras">Para acervos com obras até 40cm:</span>
         <p>Quantidade de obras:</p>
         <input type="text" id="qtdObras1">
         <p>Tempo desde a ultima restauração (em anos):</p>
         <input id="rest1" /> <br> <br>
       
-        <span id="cm40">Para acervos com obras de 41 até 100cm:</span>
+        <span id="tamanhoObras">Para acervos com obras de 41 até 100cm:</span>
         <p>Quantidade de obras:</p>
         <input type="text" id="qtdObras2">
         <p>Tempo desde a ultima restauração (em anos):</p>
         <input id="rest2" /> <br> <br>
      
 
-        <span id="cm40">Para acervos com obras de 100cm ou mais:</span>
+        <span id="tamanhoObras">Para acervos com obras de 100cm ou mais:</span>
         <p>Quantidade de obras:</p>
         <input type="text" id="qtdObras3">
         <p>Tempo desde a ultima restauração (em anos):</p>
         <input id="rest3" /> <br> <br>
       </div>
 
-      <button class="botao" onclick="Gastos();animacao();">Calcular gastos</button>
-      <button class="botao" onclick="Limpar();animacaolimpar();">Limpar</button> <br />
+      <button class="botao" onclick="Gastos();refinamento()">Calcular gastos</button>
+      <button class="botao" onclick="Limpar();refinamento2()">Limpar</button> <br />
+      
       <div id="showGasto"></div>
 
       <!-- <p id="salaNum">Número de salas que contém obras a serem monitoradas</p>

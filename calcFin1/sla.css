@@ -8,7 +8,7 @@ h1{
     justify-content: center;
 }
 
-.parent{
+.elementosInput{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -16,7 +16,7 @@ h1{
     
 }
 
-.calc1 {
+.boxDeInput {
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
     background-color: #96adc8;
@@ -37,7 +37,11 @@ h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 120%;
     background-color: aliceblue;
-    border-radius: 5%;
+    border: solid 3px black;
+    padding: 10px;
+    margin-left: 10%;
+    border-radius: 10px;
+    
    
 }
 
@@ -49,9 +53,10 @@ h1{
     margin: 0.2%;
 }
 
-#cm40 {
+#tamanhoObras {
     font-weight: bold;
     justify-content: center;
+
 }
 
 p {
@@ -61,3 +66,9 @@ p {
     margin: 0.1cm;
 }
 
+.elemento1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

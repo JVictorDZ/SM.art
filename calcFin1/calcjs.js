@@ -111,8 +111,14 @@ function Gastos(){
 function Limpar(){
     results.innerHTML = ""
     results2.innerHTML = ""
-    results3.innerHTML = ""
-    
+    results3.innerHTML = ""    
+}
+
+function refinamento(){
+  document.getElementById("resultados").classList.add('resultados')
+}
+function refinamento2(){
+  document.getElementById("resultados").classList.remove('resultados')
 }
 
 
