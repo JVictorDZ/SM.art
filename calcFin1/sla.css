@@ -39,7 +39,6 @@ h1{
     background-color: aliceblue;
     border: solid 3px black;
     padding: 10px;
-    margin-left: 10%;
     border-radius: 10px;
     
    
@@ -71,4 +70,20 @@ p {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.explica {
+    padding: 0;
+    display: flex;
+    margin: 0.5%;
+    border: solid 3px black;
+    background: white;
+    padding: 0.5%;
+    border-radius: 10px;
+    width: 30%;
+    height: 20%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;
+
+    
 }
