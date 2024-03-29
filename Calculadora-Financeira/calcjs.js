@@ -1,7 +1,17 @@
 
 
-explicacao.innerHTML = "<h3>Neste calculo levamos em consideração dois fatores: <br><br> 1-Os preços médios de restauração para cada quadro, sendo: R$7500 para pequenos; R$18750 para quadros médios; R$18750, no minímo, para quadros a partir de 1 metro. <br> 2-Uma variação de temperatura em até 50% do ideal.</h3>"
+explicacao.innerHTML = "<h3>Neste calculo levamos em consideração dois fatores: <br><br> 1-Os preços médios de restauração para cada quadro, sendo: R$7500 para pequenos; R$18750 para quadros médios; R$18750, no minímo, para quadros a partir de 1 metro. <br> 2-Consideramos as temperaturas como: 21°C como frio; 24°C como neutro; 30°C como quente.</h3>"
 function Gastos(){
+
+  //Capturando o valor da conbox (quente,frio,neutro)
+  var sensTermic1 = selectObras.value
+  
+  //quanto se economizaria no maximo a depender do quanto a temperatura passa da temperatura relativa  
+  var economiaMax = 0 
+  
+  if(sensTermic1 == '3') economiaMax = 0.33
+  else if (sensTermic1 == '2') economiaMax = 0.167
+  else economiaMax = 0.05
     
   //converte valores inseridos em números
     var anosUltimaRestauracao1 = Number(rest1.value);
@@ -36,17 +46,15 @@ function Gastos(){
     
     
     
-    
-    
   //20/30(tempIdeal/tempSemConservar) = 66% do valor total, ou seja 33% de desconto máximo.
   //valor máximo de economia vezes os anos que ainda restam
-  var economia1 = quadro40P * 0.33 * (15 - anosUltimaRestauracao1) 
+  var economia1 = quadro40P * economiaMax * (15 - anosUltimaRestauracao1) 
   var economiaTotal1 = economia1 * qntdObras1 
     
-  var economia2 = quadro41M * 0.33 * (15 - anosUltimaRestauracao2) 
+  var economia2 = quadro41M * economiaMax * (15 - anosUltimaRestauracao2) 
   var economiaTotal2 = economia2 * qntdObras2
   
-  var economia3 = quadro100G * 0.33 * (15 - anosUltimaRestauracao3) 
+  var economia3 = quadro100G * economiaMax * (15 - anosUltimaRestauracao3) 
   var economiaTotal3 = economia3 * qntdObras3
 
     

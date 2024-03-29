@@ -58,6 +58,20 @@ h1{
 
 }
 
+#selectObras {
+    font-weight: bold;
+    justify-content: center;
+    margin: 2%;
+    margin-bottom: 10%;
+    
+}
+
+#selectObras1 {
+    font-weight: bold;
+    justify-content: center;
+    margin: 2%;
+}
+
 p {
     justify-content: center;
     display: flex;
