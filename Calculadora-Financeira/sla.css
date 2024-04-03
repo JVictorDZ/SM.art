@@ -1,3 +1,7 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 body{
     margin: 0;
     background-image: url("https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/622f52a473f110342d5a4d2a_Corporate%20Memphis%20Piece%20(March%202022).png");
@@ -6,6 +10,40 @@ body{
 h1{
     display: flex;
     justify-content: center;
+    /* color: white; */
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #000059;
+    color: white;
+}
+
+input{
+    border-radius: 10px;
+    outline: none;
+}
+
+.logo{
+    /* width: 40px; */
+    top: 51%;
+    height: 60px;
+}
+
+.menuLg{
+    margin-left: 30px;
+    display: flex;
+}
+
+.menu{
+    position: absolute;
+    right: 3%;
+    display: flex;
+    column-gap: 30px;
 }
 
 .elementosInput{
@@ -17,16 +55,18 @@ h1{
 }
 
 .boxDeInput {
+    margin-top: 50px;
+    margin-bottom: 50px;
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
-    background-color: #96adc8;
+    background-color: #000059;
     display: flex;
     flex-direction: column;
     width: 300px;
-    border-radius: 5%;
+    border-radius: 18%;
     padding: 3%;
-    border: solid 3px black;
-    
+    /* border: solid 3px black; */
+    color: white;
 }
 
 
@@ -34,22 +74,26 @@ h1{
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 120%;
     background-color: aliceblue;
-    border: solid 3px black;
+    /* border: solid 3px black; */
     padding: 10px;
     border-radius: 10px;
-    
-   
 }
 
 
 .botao {
     border: solid 3px #96adc8;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: larger;
-    margin: 0.2%;
+    font-size: 25px;
+    margin-top: 28px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    background-color: #006bc8;
+    color: white;
 }
 
 #tamanhoObras {
@@ -79,25 +123,18 @@ p {
     margin: 0.1cm;
 }
 
-.elemento1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
 .explica {
-    padding: 0;
+    /* padding: 0; */
+    margin-top: 120px;
     display: flex;
-    margin: 0.5%;
-    border: solid 3px black;
+    /* margin: 0.5%; */
+    /* margin-bottom: 20px; */
+    /* border: solid 3px black; */
     background: white;
     padding: 0.5%;
     border-radius: 10px;
-    width: 30%;
+    width: 40%;
     height: 20%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: small;
-
-    
 }

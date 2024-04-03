@@ -3,18 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Calculadora</title>
     <link rel="stylesheet" href="sla.css" />
+    <script src="calcjs.js"></script>
   </head>
   
   <body>
+    <header>
+      <div class="menuLg">
+        <h1 id="title">SM.art</h1>
+        <img class="logo" src="https://i.postimg.cc/FKyZwrDC/download-1.png">
+      </div>
 
-    <div class="elemento1">
-      <h1 id="title">Calculadora Financeira</h1>
-      <img class="logo" src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="">
+      <div class="menu">
+        <h4>HOME</h4>
+        <h4>SOBRE NÓS</h4>
+        <h4>CALCULADORA</h4>
+        <h4>||</h4>
+        <h4>LOG-IN</h4>
+        <h4>CADASTRO</h4>
+      </div>
+    </header>
 
-    </div>
     <div class="elementosInput">
+      <div id="explicacao" class="explica"></div>
       <div class="boxDeInput">
         <span id="selectObras1">Qual é a sensação térmica do ambiente?</span>
         <select id="selectObras" style="width: 150px">
@@ -40,12 +52,12 @@
         <input type="text" id="qtdObras3">
         <p>Tempo desde a ultima restauração (em anos):</p>
         <input id="rest3" /> <br> <br>
+        <button class="botao" onclick="Gastos();refinamento()">Calcular gastos</button>
       </div>
 
-      <button class="botao" onclick="Gastos();refinamento()">Calcular gastos</button>
-      <button class="botao" onclick="Limpar();refinamento2()">Limpar</button> <br />
+      <!-- <button class="botao" onclick="Limpar();refinamento2()">Limpar</button> <br /> -->
       
-      <div id="explicacao" class="explica"></div>
+      
       <div id="showGasto"></div>
 
       <!-- <p id="salaNum">Número de salas que contém obras a serem monitoradas</p>
@@ -55,12 +67,10 @@
     </div> -->
 
     <div id="resultados" >
-      <div id="results"></div>
+      <div id="results"></div><script src="calcjs.js"></script>
       <div id="results2"></div>
       <div id="results3"></div>
       <div id="nSalas"></div>
     </div>
   </body>
 </html>
-
-<script src="calcjs.js"></script>
