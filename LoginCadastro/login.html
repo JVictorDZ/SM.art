@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="csslog.css" />
+  </head>
+  <body>
+    <div id="boxInput">
+      <h3>Login</h3>
+
+      <i class="fa-envelope"></i
+      ><input type="text" id="email" placeholder="Insira email" /> <br />
+
+      <input type="text" id="passwd" placeholder="Insira a senha" /> <br />
+
+      <div id="senhaerro"></div>
+      <div id="showerro"></div>
+      <br />
+
+      <button id="validar" onclick="analisar()">Fazer Login</button> <br />
+      <br />
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function analisar() {
+    var mail = email.value;
+    var senha = passwd.value;
+
+    var indiceArroba = mail.indexOf("@");
+
+    if (indiceArroba < 0) {
+      showerro.innerHTML = `Insira um email válido!`;
+      document.getElementById("showerro").classList.add("erro");
+    }
+
+    if(senha == ''){
+        senhaerro.innerHTML = `Preencha o campo senha!`;
+    }
+
+    
+  }
+</script>
