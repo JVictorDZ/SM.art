@@ -1,1 +1,33 @@
-redefinir senha
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> Redefinição De Senha </h3>
+    Digite seu email no campo abaixo e lhe enviaremos um código de ativação para redefinição da sua senha. <br>
+    <input type="text" id="input_email" placeholder="Insira seu email">
+    <button onclick="redefinir()"> Redefinir Senha </button>
+     <div id="div_mensageerro"></div>
+</body>
+</html>
+<script>
+
+ function redefinir(){
+
+ var email = input_email.value;
+ var indiceArroba = email.indexOf('@')
+
+ if(indiceArroba < 0){
+ div_mensagemerro.innerHTML = `Escreva um email válido!`
+ }
+
+
+
+
+ }
+
+
+</script>
