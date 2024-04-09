@@ -1,0 +1,51 @@
+*{
+
+}
+
+body{
+    background-image: url(https://elheraldoslp.com.mx/new/wp-content/uploads/2023/09/Restauran-una-de-las-obras-mas-visitadas-del-Museo-del-Louvre.jpg);
+}
+
+header{
+    position: fixed;
+    display: flex;
+    color: white;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+
+.logoTipo{
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.navBar{
+    position: absolute;
+    display: flex;
+    column-gap: 40px;
+    align-items: center;
+    right: 50px;
+    top: 15px;
+}
+
+.information{
+    display: flex;
+    color: white;
+    height: 100vh;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.information button{
+    width: 200px;
+    height: 40px;
+    background-color: #00455a;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
