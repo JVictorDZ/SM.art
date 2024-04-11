@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="rstyle.css">
 </head>
 <body>
-    <h3> Redefinição De Senha </h3>
-    Digite seu email no campo abaixo e lhe enviaremos um código de ativação para redefinição da sua senha. <br>
-    <input type="text" id="input_email" placeholder="Insira seu email">
-    <button onclick="redefinir()"> Redefinir Senha </button>
-     <div id="div_mensageerro"></div>
+   <div id="boxInput">
+     <h2> Redefinição de Senha </h2> <br>
+    Digite seu email no campo abaixo e lhe <br> enviaremos um código de ativação para <br> redefinição da sua senha. <br> <br> 
+    Email de recuperação: 
+    <input type="text" id="input_email" placeholder="Insira seu email"> <br> 
+    <button id="button" onclick="redefinir()"> Redefinir Senha </button>
+     <div id="div_mensagemerro"></div>
+     <div id="div_mensagem"></div>
+   </div>
 </body>
 </html>
 <script>
@@ -18,16 +23,34 @@
  function redefinir(){
 
  var email = input_email.value;
- var indiceArroba = email.indexOf('@')
+ var indiceArroba = email.indexOf('@');
+ var tamanhoEmail = email.length;
+ var comeca_com_arroba = email.startsWith('@');
+ var comeca_com_ponto = email.startsWith('.');
+ var indicePonto = email.indexOf('.')
 
- if(indiceArroba < 0){
- div_mensagemerro.innerHTML = `Escreva um email válido!`
+
+div_mensagem.innerHTML = '';
+ 
+  if(comeca_com_arroba){
+  div_mensagemerro.innerHTML = ` O primeiro caractere do email de usuário precisa ser uma letra do tipo ASCII (a-z) ou um número (0-9) <br>`
+ } if(comeca_com_ponto){
+  div_mensagemerro.innerHTML = `O primeiro caractere do email de usuário precisa ser uma letra do tipo ASCII (a-z) ou um número (0-9)`
+ }
+  if(tamanhoEmail < 6){
+  div_mensagemerro.innerHTML += `Número de caracteres insuficiente`
+ } else if(tamanhoEmail > 45){
+  div_mensagemerro.innerHTML += `Número de caracteres acima do ideal`
+ } if(indiceArroba > 0 && indicePonto > 0){
+  div_mensagem.innerHTML = `Enviamos o código de Verificação para voçê!<br> Acesse-o para recuperar a sua senha`
+ } 
+  else{
+  div_mensagem.innerHTML = `Escreva um email válido!`
+ }  
+
+
  }
 
-
-
-
- }
 
 
 </script>
