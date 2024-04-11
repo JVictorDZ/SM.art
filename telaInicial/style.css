@@ -1,20 +1,30 @@
-*{
-
-}
-
 body{
      /* background-image: url(https://elheraldoslp.com.mx/new/wp-content/uploads/2023/09/Restauran-una-de-las-obras-mas-visitadas-del-Museo-del-Louvre.jpg); */
     background-image: url(fundo.webp);
     background-size: cover;
-    opacity: 1;
+}
+
+body::after {
+    content: ""; /* Adiciona conteúdo ao elemento ::after */
+    position: absolute; /* Posiciona o elemento ::after de forma absoluta */
+    top: 0;
+    left: 0;
+    width: 100%; /* Faz o elemento ::after cobrir toda a largura do corpo */
+    height: 100vh; /* Faz o elemento ::after cobrir toda a altura do corpo */
+    background-color: rgba(53, 83, 99, 0.25); /* Define a cor de fundo com transparência (use RGBA para definir a transparência) */
+    z-index: -1;
+
 }
 
 header{
     position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     color: white;
     width: 100%;
     /* justify-content: space-between; */
+    /* background-color: rgb(53, 83, 99); */
 }
 
 .logoTipo{
