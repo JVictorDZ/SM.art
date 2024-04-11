@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="csslog.css" />
   </head>
   <body>
+    
     <div id="boxInput">
       <h3>Login</h3>
 
@@ -16,17 +17,18 @@
       <input type="text" id="passwd" placeholder="Insira a senha" /> <br />
       
       
+      <div id="lembraSenha1">
+        Lembrar senha<input type="checkbox" id="lembraSenha"> <br>
+        
+      </div>
+      
+      <button id="validar" onclick="analisar()">Fazer Login</button> <br />
+      <br />
       <div id="senhaerro"></div>
       <div id="showerro"></div>
       <br />
       <div>
-        Lembrar senha<input type="checkbox" id="lembraSenha"> <br>
-
-      </div>
-      <button id="validar" onclick="analisar()">Fazer Login</button> <br />
-      <br />
-      <div>
-        <a href="redefinirSenha.html">Esqueceu a senha?</a> 
+        <a id="esqueceusenha" href="redefinirSenha.html">Esqueceu a senha?</a> 
 
       </div>
       </div>
@@ -41,9 +43,17 @@
 
     var indiceArroba = mail.indexOf("@");
 
-    if (indiceArroba < 0) {
+    var alphabet1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    var special1 = ['@','(','~','!','@','#','$','%','^','&','*','_','-','+','=','`','|','','()','{}','[]',':',';','<>',';','?',')','}']
+
+    if (indiceArroba < 0 || !alphabet1.includes(mail.charAt(0).toUpperCase()) || special1.includes(mail.charAt(mail.length - 1).toUpperCase())) {
       showerro.innerHTML = `Insira um email válido!`;
       document.getElementById("showerro").classList.add("erro");
+    }
+
+
+    if(mail.length < 7 || mail.lenght > 45){
+      showerro.innerHTML = `Caracteres fora do intervalo ideal!`
     }
 
     if(senha == ''){
