@@ -2,6 +2,7 @@ body{
      /* background-image: url(https://elheraldoslp.com.mx/new/wp-content/uploads/2023/09/Restauran-una-de-las-obras-mas-visitadas-del-Museo-del-Louvre.jpg); */
     background-image: url(fundo.webp);
     background-size: cover;
+    overflow: hidden;
 }
 
 body::after {
