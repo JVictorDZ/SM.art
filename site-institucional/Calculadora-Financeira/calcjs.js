@@ -137,3 +137,13 @@ function refinamento2(){
 }
 
 
+
+function rota(valor){
+  if (valor == 'home'){
+    window.location.href = '../telaInicial/index.html';
+  } else if(valor == 'login'){
+    window.location.href = '../LoginCadastro/login.html';
+  } else if(valor == 'cadastro'){
+    window.location.href = '../LoginCadastro/index.html';
+  }
+}

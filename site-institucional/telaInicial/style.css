@@ -11,7 +11,7 @@ body::after {
     left: 0;
     width: 100%; /* Faz o elemento ::after cobrir toda a largura do corpo */
     height: 100vh; /* Faz o elemento ::after cobrir toda a altura do corpo */
-    background-color: rgba(53, 83, 99, 0.25); /* Define a cor de fundo com transparência (use RGBA para definir a transparência) */
+    background-color: rgba(29, 43, 64, 0.5); /* Define a cor de fundo com transparência (use RGBA para definir a transparência) */
     z-index: -1;
 
 }
