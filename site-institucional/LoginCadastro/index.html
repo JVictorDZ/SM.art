@@ -1,43 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css.css" />
-  </head>
-  <body>
-    <div id="boxInput">
-      <h3>Cadastre-se</h3>
 
-      <input type="text" id="email" placeholder="Insira email" /> <br />
-      
-   
-      <input type="text" id="cpf" placeholder="Insira CPF" /> <br>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SM.ART | Cadastro</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
 
-      <input type="text" id="passwd" placeholder="Insira a senha" /> <br />
-      
+<body>
 
-      <input type="text" id="passwd2" placeholder="Confirme a senha" /> <br />
-      <br />
-      
-      <button id="validar" onclick="analisar()">Cadastre-se</button> <br />
-      <br />
-      <div id="senhaerro"></div>
-      <div id="showerro"></div>
-      <div id="cpferro"></div>
-      <br />
-      
-      <div id="showtip">
-        Já possuí conta? <a href="login.html">Clique aqui</a>
+
+  <header>
+    <div id="div_navbar">
+      <div class="logoTipo" onclick="rota('telaInicial')">
+        <img src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="logo">
+        <h2>SM.Art</h2>
+      </div>
+
+      <div class="navBar">
+        <h4 style="cursor: pointer;" onclick="rota('simulador')">Simulador</h4>
+        <h4 style="cursor: pointer;">Sobre nós</h4>
+        <h4 style="cursor: pointer;">Soluções</h4>
+        <h4 style="cursor: pointer;" onclick="rota('cadastro')">Cadastro</h4>
+        <h4 style="cursor: pointer;" onclick="rota('login')">Login</h4>
       </div>
     </div>
-  </body>
+  </header>
+
+  <div id="boxInput">
+    <h3>Cadastre-se</h3>
+    Insira seu nome completo:
+    <input type="text" id="nome" placeholder="insira o nome completo">
+    Insira seu melhor email:
+    <input type="text" id="email" placeholder="Insira email" /> <br />
+    Insira o museu em que trabalha:
+    <input type="text" id="museu" placeholder="Insira o Museu">
+
+    Insira seu CPF:
+    <input type="text" id="cpf" placeholder="Insira CPF" /> <br>
+    Insira a senha desejada e confirme:
+    <input type="text" id="passwd" placeholder="Insira a senha" /> <br />
+
+
+    <input type="text" id="passwd2" placeholder="Confirme a senha" /> <br />
+    <br />
+
+    <button id="validar" onclick="analisar()">Cadastre-se</button> <br />
+    <br />
+    <div id="senhaerro"></div>
+    <div id="showerro"></div>
+    <div id="cpferro"></div>
+    <br />
+
+    <div id="showtip">
+      Já possuí conta? <a href="login.html">Clique aqui</a>
+    </div>
+  </div>
+</body>
+
 </html>
 
 <script>
 
-  
+
 
   function analisar() {
     var cpfValue = cpf.value;
@@ -45,11 +71,11 @@
     var mail = email.value;
     var senha = passwd.value;
     var confsenha = passwd2.value;
-  
+
 
     var indiceArroba = mail.indexOf("@");
-    var alphabet1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-    var special1 = ['@','(','~','!','@','#','$','%','^','&','*','_','-','+','=','`','|','','()','{}','[]',':',';','<>',';','?',')','}']
+    var alphabet1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var special1 = ['@', '(', '~', '!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '=', '`', '|', '', '()', '{}', '[]', ':', ';', '<>', ';', '?', ')', '}']
 
     if (indiceArroba < 0 || !alphabet1.includes(mail.charAt(0).toUpperCase()) || special1.includes(mail.charAt(mail.length - 1).toUpperCase())) {
       showerro.innerHTML = `Insira um email válido!`;
