@@ -62,12 +62,19 @@ header{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 5px;
+    margin-left: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .information h3{
-    margin: 3px 15px;
+    margin: 3.5px 15px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .information h1{
     margin: 0px 15px;
+    font-size: 37px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
