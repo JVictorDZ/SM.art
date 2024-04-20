@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg)
+  }
+  
+  
+  #boxInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5%;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    margin-top: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-bottom: 5%;
+    background-image: linear-gradient(to bottom right, #8dc7ca, #72afe0, #AEC6CF);
+    position: relative;
+    top: -60px;
+    
+  
+  }
+  
+  button {
+    background-image: linear-gradient(to bottom right, #2196F3, #1E88E5, #1976D2);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: large;
+  
+  
+  
+  }
+  
+  button:hover {
+    background-image: linear-gradient(to bottom right, #1976D2, #1E88E5, #2196F3);
+  
+  
+  }
+  
+  input {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+
+  #boxInput input {
+    margin-bottom: 10px;
+  }
+  
+  
+  .logoTipo {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    font-family: sans-serif, Geneva, Tahoma, sans-serif
+  }
+  
+  .navBar {
+    position: absolute;
+    display: flex;
+    column-gap: 40px;
+    align-items: center;
+    right: 50px;
+    top: 15px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+
+  
