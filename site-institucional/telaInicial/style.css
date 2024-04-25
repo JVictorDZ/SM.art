@@ -1,7 +1,12 @@
+html{
+    /*Esse atributo da uma transição suave para a rolagem de tela*/
+    scroll-behavior: smooth;
+}
+
 body{
      /* background-image: url(https://elheraldoslp.com.mx/new/wp-content/uploads/2023/09/Restauran-una-de-las-obras-mas-visitadas-del-Museo-del-Louvre.jpg); */
     background-image: url(fundo.webp);
-    background-size: contain;
+    background-size: cover;
     /* overflow: hidden; */
     margin: 0;
 }
@@ -26,7 +31,13 @@ header{
     color: white;
     width: 100%;
     /* justify-content: space-between; */
-    /* background-color: rgb(53, 83, 99); */
+    background-color: rgb(53, 83, 99);
+    z-index: 1;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
 
 .logoTipo{
@@ -81,25 +92,42 @@ header{
 }
 
 .sobrenos{
-background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg');
-height: 500px;
-margin: 0;
+    background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg');
+    position: absolute;
+    display: flex;
+    margin-top: 20px;
+    height: 86%;
+    width: 100%;
+    z-index: 0;
 }
 
-.sobrenos h3{
+.sobrenos span{
     margin: 3.5px 15px;
     font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
 
-footer{
+.sobrenos .container{
+    margin-top: 150px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sobrenos img{
+    height: 100px;
+    width: 100px;
+}
+
+/* footer{
     position: absolute;
     left: -20%;
     top: 123%;
     margin: 300px;
     text-align: start;
-    background-color: black;
+    background-color: black; 
     width: 900px;
     height: 60px;
-}
+} */

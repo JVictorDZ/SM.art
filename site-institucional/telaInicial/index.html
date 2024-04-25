@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="https://i.postimg.cc/FKyZwrDC/download-1.png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <title>SM.ART | Inicial</title>
@@ -19,28 +20,45 @@
         <div class="navBar">
             <h4 style="cursor: pointer;" onclick="rota('simulador')">Simulador</h4>
             <h4 style="cursor: pointer;">Soluções</h4>
+            <!-- Âncora apontada para um elemento que pertence ao mesmo documento HTML -->
+            <a href="#sobrenosSec"><h4 style="cursor: pointer;">Sobre-Nós</h4></a>
             <h4 style="cursor: pointer;" onclick="rota('cadastro')">Cadastro</h4>
             <h4 style="cursor: pointer;" onclick="rota('login')">Login</h4>
         </div>
     </header>
 
+    <!-- Parte inicial sobre a página -->
     <section class="information">
         <h1>O FUTURO DAS</h1>
         <h1>OBRAS DE ARTE</h1>
         <!-- <h1>.</h1> -->
         <h3>Monitoramento e preservação de obras</h3>
-        <h3>de arte e quadros feito de forma</h3>
+        <h3>de arte e quadros, feito de forma</h3>
         <h3>inteligente</h3>
 
         <button class="infoBtn" onclick="rota('sobrenos')">SOBRE NÓS</button>
     </section>
-    <section class="sobrenos">
-        <h3>Monitoramento e preservação de obras</h3>
-        <h3>de arte e quadros feito de forma</h3>
-        <h3>inteligente</h3>
-        <footer>
+
+    <!-- Uma breve apresentação sobre SM.Art -->
+    <section class="sobrenos" id="sobrenosSec">
+        <div class="container">
+            <h2>Quem Somos?</h2>
+            <img src="imagens/quemSomosIcon.png" alt="Quem Somos">
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eligendi possimus eos delectus commodi? Laborum repellat rerum ducimus explicabo sequi aliquam tempore, reprehenderit</span>
+        </div>
+        <div class="container">
+            <h2>Visão</h2>
+            <img src="imagens/visaoIcon.png" alt="Visão">
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eligendi possimus eos delectus commodi? Laborum repellat rerum ducimus explicabo sequi aliquam tempore, reprehenderit</span>
+        </div>
+        <div class="container">
+            <h2>Valores</h2>
+            <img src="imagens/valoresIcon.png" alt="Valores">
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error eligendi possimus eos delectus commodi? Laborum repellat rerum ducimus explicabo sequi aliquam tempore, reprehenderit</span>
+        </div>
+        <!-- <footer>
             Telefone: xxxx
-        </footer>
+        </footer> -->
     </section>
 </body>
 
