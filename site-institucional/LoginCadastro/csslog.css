@@ -6,11 +6,16 @@ body {
 
 
 #boxInput {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5%;
   width: 400px;
+  height: 300px;
   margin: 0 auto;
   text-align: center;
   padding-bottom: 5%;
@@ -18,13 +23,12 @@ body {
   margin-top: 5%;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding-bottom: 5%;
-  background-image: linear-gradient(to bottom right, #8dc7ca, #72afe0, #AEC6CF);
-
-
+  /* background-image: linear-gradient(to bottom right, #8dc7ca, #72afe0, #AEC6CF);   */
 }
 
 button {
-  background-image: linear-gradient(to bottom right, #2196F3, #1E88E5, #1976D2);
+  /* background-image: linear-gradient(to bottom right, #2196F3, #1E88E5, #1976D2); */
+  background-color: #00455a;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -34,9 +38,7 @@ button {
   margin-bottom: 0;
   margin-top: 0;
   font-size: large;
-
-
-
+  width: 200px;
 }
 
 button:hover {
@@ -47,7 +49,7 @@ button:hover {
 
 input {
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1.5px solid #777171;
   border-radius: 100px;
   transition: all 0.2s ease-in-out;
 }
@@ -85,6 +87,7 @@ a:link {
 }
 
 #lembraSenha1 {
+  display: flex;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
 }
