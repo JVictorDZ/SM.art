@@ -18,7 +18,7 @@ body {
     margin-top: 5%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-bottom: 5%;
-    background-image: linear-gradient(to bottom right, #8dc7ca, #72afe0, #AEC6CF);
+    
     position: relative;
     top: -60px;
     
@@ -26,7 +26,7 @@ body {
   }
   
   button {
-    background-image: linear-gradient(to bottom right, #2196F3, #1E88E5, #1976D2);
+    background-image: linear-gradient(to bottom right, #00455a, #0f718f, #00455a);
     color: white;
     padding: 10px 20px;
     border: none;
