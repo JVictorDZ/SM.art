@@ -1,0 +1,337 @@
+
+
+
+
+body {
+  background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg);
+
+    margin: 0;
+}
+
+
+header {
+    margin-top: 0;
+    display: flex;
+    color: white;
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    
+    margin: auto;
+    background-image: linear-gradient(to right, #0F3057, #236FA8);
+    
+}
+
+.subHeader {
+  margin-top: 0;
+    display: flex;
+    color: white;
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    margin: auto;
+    background-image: linear-gradient(to right, #0F3057, #236FA8);
+    
+    border-top: solid 2px aliceblue;
+    border-bottom: solid 2px aliceblue;
+}
+
+.logoTipo {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.navBar {
+    position: absolute;
+    display: flex;
+    column-gap: 40px;
+    align-items: center;
+    right: 50px;
+    top: 15px;
+    margin: auto;
+ 
+    
+}
+
+.information {
+    display: flex;
+    color: #113258;
+    min-height: 100vh; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 50%;
+}
+
+.information button {
+    width: 200px;
+    height: 40px;
+    background-color: #ffffff;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.information h3 {
+    margin: 3px 15px;
+}
+
+.information h1 {
+    margin: 0px 15px;
+}
+
+.central-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1%;
+    margin: 5%;
+    border-radius: 5px;
+    max-width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 0;
+    margin-bottom: 0;
+    
+  }
+  
+  .Indicador {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    max-width: 100%; 
+    margin: 3%;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    margin-bottom: 0;
+    background-image: linear-gradient(to bottom, #4D81BF, #6FA3D9);
+
+    
+  }
+
+  .Indicador2 {
+    display: flex;
+    flex-direction: column;
+    padding: 0; 
+    max-width: 100%; 
+    margin: 3%;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: solid 3px black;
+    font-size: xx-small;
+    font-weight: bold;
+   width: 15%;
+   padding: 6%;
+   margin-left: 0;
+   background-color: aliceblue;
+   border-radius: 10px;
+
+   
+    
+  }
+
+  #q1 {
+    padding: 10px;
+  }
+
+  .Indicador2 h2 {
+    display: flex;
+    flex-direction: row;
+  
+   
+    
+  }
+
+.Indicador2 h1 {
+  margin-top: 0;
+}
+  
+  .containerIndicadores {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+      margin-bottom: 0;
+      margin-left: 100px;
+    
+    
+  }
+  
+  .temp,
+  .umid {
+    width: 30%;
+    height: 1%;
+    margin: 0 10px;
+    border-radius: 5%;
+    background-image: linear-gradient(to bottom, #2980B9, #3498DB);
+    margin-left: 0;   
+    margin: 3%; 
+    
+
+  }
+  
+  .temp canvas,
+  .umid canvas {
+    width: 100%;
+    height: 100%;
+    border: solid 3px black;
+    border-radius: 5%;
+  
+   
+  }
+
+  .info1{
+    max-width: 80%;
+    margin-left: 10%;
+    padding: 0.3%;
+    border-radius: 10px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-left: 100px;
+  }
+
+  
+
+img {
+  width: 40px;
+  height: auto;
+}
+
+
+.sublogoTipo {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  margin: 10px;
+  margin-left: 10%;
+  
+}
+.sublogoTipo img {
+  border-radius: 10px;
+}
+
+#sala  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30%;
+  margin-right: 0 ;
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+ appearance: none; 
+  cursor: pointer;
+  transition: border-color 0.3s;
+
+}
+
+#sala button {
+  margin-bottom: 5%;
+  margin-left: 1%;
+}
+
+#salas {
+  font-size: large;
+}
+
+
+#SideBar {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #4D81BF, #6FA3D9);
+  width: 5%;
+  height: 170%;
+  position: absolute;
+  padding-right: 1%;
+  
+ 
+}
+
+#SideBar h4 {
+  margin-left: 25%;
+  margin-right: 25%;
+  
+}
+
+#SideBar button {
+  background-image: linear-gradient(to bottom, #4D81BF, #6FA3D9);
+
+}
+
+.bottom {
+  margin-bottom: 600%;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent; 
+  padding: 0; 
+  margin-top: 30px;
+}
+
+
+input {
+  border-bottom: 1px solid #000; 
+  margin-bottom: 0x; 
+}
+
+
+input {
+  transition: border-bottom-color 0.2s ease;
+}
+
+
+input:hover,
+input:focus {
+  border-bottom-color: #666; 
+}
+
+.select {
+  background-color: #007bff;
+  border: none;
+  color: white;
+
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  height: 20px;
+  margin-bottom: 0;
+  margin-top: 25px;
+  margin-right: 0;
+}
+
+.select button {
+  margin-left: 0;
+  padding: 0;
+}
+.select:hover {
+  background-color: #0056b3;
+}
+
+.sublogoTipo button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  border-radius: 15px;
+  
+
+}
+
+#filtro {
+  margin-right: 0;
+}
+
+
+

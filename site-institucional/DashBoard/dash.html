@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link rel="stylesheet" href="dash.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logoTipo">
+        <img src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="logo" />
+        <h2>SM.Art</h2>
+        <h3>Olá, Brandão!</h3>
+      </div>
+
+      <div class="navBar">
+        <h4 style="cursor: pointer" onclick="rota('login')">Deslogar-se</h4>
+      </div>
+    </header>
+
+    <header class="subHeader">
+      <div id="sala">
+        <select name="" id="salas">
+          <option value="" selected disabled>Selecionar sala</option>
+          <option value="1">Sala 1</option>
+          <option value="2">Sala 2</option>
+          <option value="3">Sala 3</option>
+        </select>
+        <button class="select" onclick="selection()">Selecionar</button>
+      </div>
+      <div class="sublogoTipo">
+        <input type="text" id="searcher" />
+        <button onclick="showSearcher()">
+          <img src="imagens/search-circle-svgrepo-com.svg" alt="" />
+        </button>
+        <div>
+          <select name="" id="filtro">
+            <option value="0" selected>Filtrar</option>
+            <option value="1">Temperatura ↑</option>
+            <option value="2">Temperatura ↓</option>
+            <option value="3">Umidade ↑</option>
+            <option value="4">Umidade ↓</option>
+          </select>
+
+        </div>
+        
+      </div>
+    </header>
+
+    <div id="SideBar">
+      <h4><button onclick="rota('telaInicial')"><img src="imagens/house.svg" alt="" /> </button></h4>
+      <h4><button><img src="imagens/notification-bell.svg" alt="" /></button></h4>
+      <h4><button><img src="imagens/calendar-days-svgrepo-com.svg" alt="" /></button></h4>
+      <h4><button class="bottom"><img src="imagens/settings-2-svgrepo-com.svg" alt="" /></button></h4>
+    </div>
+
+    <div class="containerIndicadores">
+      <div class="Indicador" id="q11">
+        <img src="imagens/frame-svgrepo-com.svg" alt="" />
+        <h3>Quantidade de quadros:2</h3>
+      </div>
+      <div class="Indicador" id="q12">
+        <h3>Total de Quadros</h3>
+      </div>
+      <div class="Indicador" id="q13">
+        <h3>Total de Quadros</h3>
+        <h5>22</h5>
+      </div>
+      </div>
+    </div>
+
+    <div class="info1">
+      <div class="central-container" id="a1">
+        <div class="Indicador2" id="q1" id="q">
+          <h1>Informações do quadro:</h1>
+          <h2 id="media1"></h2>
+          <h3></h3>
+          <h3></h3>
+        </div>
+
+        <div class="temp">
+          <canvas id="chartTemp" width="80" height="50"></canvas>
+        </div>
+
+        <div class="umid">
+          <canvas id="chartUmid" width="80" height="50"></canvas>
+        </div>
+      </div>
+
+      <div class="info2">
+        <div class="central-container" id="a1">
+          <div class="Indicador2" id="q1" id="q">
+            <h1>Informações do quadro:</h1>
+            <h2 id="media2"></h2>
+            <h3></h3>
+          </div>
+
+
+        <div class="temp">
+          <canvas id="chartTemp1" width="80" height="50"></canvas>
+        </div>
+
+        <div class="umid">
+          <canvas id="chartUmid1" width="80" height="50"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var tempCtx = document.getElementById("chartTemp").getContext("2d");
+      var humCtx = document.getElementById("chartUmid").getContext("2d");
+      var tempCtx1 = document.getElementById("chartTemp1").getContext("2d");
+      var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
+
+      var options = {
+        plugins: {
+          legend: {
+            labels: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+          x: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+      };
+
+      var tempData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [27, 26.5, 27, 26, 25.5, 27],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [53, 52, 51, 52, 53, 55],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [26, 26.5, 27, 26, 27, 26.5],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [50, 51, 52, 50, 53, 55],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempChart = new Chart(tempCtx, {
+        type: "line",
+        data: tempData,
+        options: options
+      });
+
+      var humChart = new Chart(humCtx, {
+        type: "line",
+        data: humData,
+        options: options
+      });
+      var tempChart1 = new Chart(tempCtx1, {
+        type: "line",
+        data: tempData1,
+        options: options
+      });
+
+      var humChart1 = new Chart(humCtx1, {
+        type: "line",
+        data: humData1,
+        options: options
+      });
+
+
+        
+      
+        
+    var tempAlerts = 0;
+    var humAlerts = 0;
+    var tempAlerts2 = 0;
+    var humAlerts2 = 0;
+    var tempAvg1 = 0
+    var tempAvg2 = 0
+    var humAvg1 = 0
+    var humAvg2 = 0
+
+for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+
+    if (tempChart.data.datasets[0].data[i] >= 26) {
+        tempAlerts++;
+    }
+    tempAvg1 = tempChart.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
+    if (humChart.data.datasets[0].data[i] >= 55) {
+        humAlerts++;
+    }
+}
+
+for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
+    if (tempChart1.data.datasets[0].data[i] >= 26) {
+        tempAlerts2++;
+    }
+    tempAvg2 = tempChart1.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
+    if (humChart1.data.datasets[0].data[i] >= 55) {
+        humAlerts2++;
+    }
+}
+document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
+document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + tempAlerts2}</h3>`;
+
+
+media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
+        media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+        
+      function selection() {
+        var chartStatus = Chart.getChart("chartTemp"); 
+      if (chartStatus != undefined) {
+      chartStatus.destroy();
+      }
+      var chartStatus2 = Chart.getChart("chartTemp1"); 
+      if (chartStatus2 != undefined) {
+    chartStatus2.destroy();
+    }
+    var chartStatus3 = Chart.getChart("chartUmid");
+    if (chartStatus3 != undefined) {
+    chartStatus3.destroy();
+    }
+    var chartStatus4 = Chart.getChart("chartUmid1"); 
+    if (chartStatus4 != undefined) {
+    chartStatus4.destroy();
+    }
+      
+    
+        if(salas.value == 1){
+          
+        
+          
+
+
+      var tempCtx = document.getElementById("chartTemp").getContext("2d");
+      var humCtx = document.getElementById("chartUmid").getContext("2d");
+      var tempCtx1 = document.getElementById("chartTemp1").getContext("2d");
+      var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
+
+      var options = {
+        plugins: {
+          legend: {
+            labels: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+          x: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+      };
+
+      var tempData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [27, 26.5, 27, 26, 25.5, 27],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [53, 52, 51, 52, 53, 55],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [26, 26.5, 27, 26, 27, 26.5],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [50, 51, 52, 50, 53, 55],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempChart = new Chart(tempCtx, {
+        type: "line",
+        data: tempData,
+        options: options
+      });
+
+      var humChart = new Chart(humCtx, {
+        type: "line",
+        data: humData,
+        options: options
+      });
+      var tempChart1 = new Chart(tempCtx1, {
+        type: "line",
+        data: tempData1,
+        options: options
+      });
+
+      var humChart1 = new Chart(humCtx1, {
+        type: "line",
+        data: humData1,
+        options: options
+      });
+
+
+        
+      var tempAlerts = 0;
+    var humAlerts = 0;
+    var tempAlerts2 = 0;
+    var humAlerts2 = 0;
+    var tempAvg1 = 0
+    var tempAvg2 = 0
+    var humAvg1 = 0
+    var humAvg2 = 0
+
+for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+    if (tempChart.data.datasets[0].data[i] >= 26) {
+        tempAlerts++;
+    }
+    tempAvg1 = tempChart.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
+    if (humChart.data.datasets[0].data[i] >= 55) {
+        humAlerts++;
+    }
+}
+
+for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
+    if (tempChart1.data.datasets[0].data[i] >= 26) {
+        tempAlerts2++;
+    }
+    tempAvg2 = tempChart1.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
+    if (humChart1.data.datasets[0].data[i] >= 55) {
+        humAlerts2++;
+    }
+}
+document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
+document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
+
+
+media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
+        media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+      
+      
+
+        }else if(salas.value == 2){
+  
+          var tempCtx = document.getElementById("chartTemp").getContext("2d");
+      var humCtx = document.getElementById("chartUmid").getContext("2d");
+      var tempCtx1 = document.getElementById("chartTemp1").getContext("2d");
+var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
+
+      var options = {
+        plugins: {
+          legend: {
+            labels: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+          x: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+      };
+
+      var tempData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [25.0, 25.8, 24.3, 26.2, 24.5, 23.9],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [68, 65, 70, 66, 69, 64],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [27.2, 28.0, 26.5, 27.8, 26.3, 27.1],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [75, 73, 78, 74, 76, 72],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempChart = new Chart(tempCtx, {
+        type: "line",
+        data: tempData,
+        options: options
+      });
+
+      var humChart = new Chart(humCtx, {
+        type: "line",
+        data: humData,
+        options: options
+      });
+      var tempChart1 = new Chart(tempCtx1, {
+        type: "line",
+        data: tempData1,
+        options: options
+      });
+
+      var humChart1 = new Chart(humCtx1, {
+        type: "line",
+        data: humData1,
+        options: options
+      });
+
+
+        
+    
+        
+      var tempAlerts = 0;
+    var humAlerts = 0;
+    var tempAlerts2 = 0;
+    var humAlerts2 = 0;
+    var tempAvg1 = 0
+    var tempAvg2 = 0
+    var humAvg1 = 0
+    var humAvg2 = 0
+
+for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+    if (tempChart.data.datasets[0].data[i] >= 26) {
+        tempAlerts++;
+    }
+    tempAvg1 = tempChart.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
+    if (humChart.data.datasets[0].data[i] >= 55) {
+        humAlerts++;
+    }
+}
+
+for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
+    if (tempChart1.data.datasets[0].data[i] >= 26) {
+        tempAlerts2++;
+    }
+    tempAvg2 = tempChart1.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
+    if (humChart1.data.datasets[0].data[i] >= 55) {
+        humAlerts2++;
+    }
+}
+document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
+document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
+
+media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
+        media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+        }else {
+        
+      
+          
+        
+          var tempCtx = document.getElementById("chartTemp").getContext("2d");
+      var humCtx = document.getElementById("chartUmid").getContext("2d");
+      var tempCtx1 = document.getElementById("chartTemp1").getContext("2d");
+var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
+
+      var options = {
+        plugins: {
+          legend: {
+            labels: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+          x: {
+            ticks: {
+              color: "rgba(255, 255,255)",
+            },
+          },
+        },
+      };
+
+      var tempData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [25.5, 25.8, 26, 26, 26.5, 27],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [55, 54, 53, 52, 53, 55],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Temperatura (°C)",
+            data: [26, 26.5, 27, 26, 27, 26.5],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+            pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var humData1 = {
+        labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+        datasets: [
+          {
+            label: "Umidade (%)",
+            data: [50, 51, 52, 50, 53, 55],
+            color: "rgb(255,255,255)",
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)",
+            borderWidth: 1,
+            pointBackgroundColor: "rgba(30,144,255)",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverBackgroundColor: "rgba(30,144,255)",
+            pointHoverBorderColor: "rgba(30,144,255)",
+            tension: 0.2,
+          },
+        ],
+      };
+
+      var tempChart = new Chart(tempCtx, {
+        type: "line",
+        data: tempData,
+        options: options
+      });
+
+      var humChart = new Chart(humCtx, {
+        type: "line",
+        data: humData,
+        options: options
+      });
+      var tempChart1 = new Chart(tempCtx1, {
+        type: "line",
+        data: tempData1,
+        options: options
+      });
+
+      var humChart1 = new Chart(humCtx1, {
+        type: "line",
+        data: humData1,
+        options: options
+      });
+
+
+        
+      
+        
+      var tempAlerts = 0;
+    var humAlerts = 0;
+    var tempAlerts2 = 0;
+    var humAlerts2 = 0;
+    var tempAvg1 = 0
+    var tempAvg2 = 0
+    var humAvg1 = 0
+    var humAvg2 = 0
+
+for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+    if (tempChart.data.datasets[0].data[i] >= 26) {
+        tempAlerts++;
+    }
+    tempAvg1 = tempChart.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
+    if (humChart.data.datasets[0].data[i] >= 55) {
+        humAlerts++;
+    }
+}
+
+for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
+    if (tempChart1.data.datasets[0].data[i] >= 26) {
+        tempAlerts2++;
+    }
+    tempAvg2 = tempChart1.data.datasets[0].data[i] 
+}
+
+for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
+    if (humChart1.data.datasets[0].data[i] >= 55) {
+        humAlerts2++;
+    }
+}
+document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
+document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
+
+
+media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
+        media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+      
+      }
+      }
+      </script>
+      
+  </body>
+</html>
+
+<script>
+ 
+</script>

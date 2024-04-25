@@ -57,6 +57,9 @@
     var mail = email.value;
     var senha = passwd.value;
 
+    var mailPreDefinido = 'brandao123@gmail.com'
+    var senhaPreDefinido = 'brandao12345'
+
     var indiceArroba = mail.indexOf("@");
 
     var alphabet1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -74,6 +77,12 @@
 
     if(senha == ''){
         senhaerro.innerHTML = `Preencha o campo senha!`;
+    }
+
+
+    if(mail == mailPreDefinido && senha == senhaPreDefinido){
+      window.location.href = "../DashBoard/dash.html";
+
     }
 
     
