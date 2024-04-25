@@ -9,4 +9,5 @@ function rota(valor){
   } else if (valor == 'telaInicial'){
     window.location.href = '../telaInicial/index.html';
   }
+  
 }

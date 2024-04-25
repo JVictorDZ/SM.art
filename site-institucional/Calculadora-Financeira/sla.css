@@ -4,7 +4,7 @@
 
 body{
     margin: 0;
-    background-image: url("https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/622f52a473f110342d5a4d2a_Corporate%20Memphis%20Piece%20(March%202022).png");
+    background-image: url("https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg");
 }
 
 h1{
@@ -19,8 +19,9 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #000059;
+    background-color: #345161;
     color: white;
+    z-index: 1;
 }
 
 input{
@@ -59,11 +60,11 @@ input{
     margin-bottom: 50px;
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
-    background-color: #000059;
+    background-color: #345161;
     display: flex;
     flex-direction: column;
     width: 300px;
-    border-radius: 18%;
+    border-radius: 35px;
     padding: 3%;
     /* border: solid 3px black; */
     color: white;
@@ -92,7 +93,7 @@ input{
     border-radius: 5px;
     border: 0;
     cursor: pointer;
-    background-color: #006bc8;
+    background-color: #040405;
     color: white;
 }
 
@@ -137,4 +138,16 @@ p {
     height: 20%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: small;
+    /*border: solid 3px #040405;*/
+    box-shadow: 1px 1px 3px 2px #040405;
+}
+
+h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.agora{
+    font-weight: 800;
 }
