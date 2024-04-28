@@ -40,7 +40,7 @@ a{
     color: white;
 }
 
-.logoTipo{
+.logoTipo {
     display: flex;
     column-gap: 20px;
     align-items: center;
@@ -114,6 +114,11 @@ a{
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 800px;
+}
+
+.container{
+    margin-left: 50px;
 }
 
 .sobrenos img{

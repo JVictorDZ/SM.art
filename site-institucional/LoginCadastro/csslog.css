@@ -106,7 +106,7 @@ a:link {
   display: flex;
   column-gap: 20px;
   align-items: center;
-  font-family: sans-serif, Geneva, Tahoma, sans-serif
+  font-family: sans-serif, Geneva, Tahoma, sans-serif;
 }
 
 .navBar {
