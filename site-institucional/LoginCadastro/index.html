@@ -22,36 +22,59 @@
         </div>
 
         <div class="navBar">
-          <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('telaInicial')">Home</h4>
-          <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('simulador')">Simulador</h4>
-          <h4 style="cursor: pointer; font-weight: 300;">|</h4>
-          <h4 style="cursor: pointer; text-shadow: 1px 1px #0000009f;" onclick="rota('cadastro')">Cadastro</h4>
-          <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('login')">Login</h4>
+          <h4
+            style="cursor: pointer; font-weight: 300"
+            onclick="rota('telaInicial')"
+          >
+            Home
+          </h4>
+          <h4
+            style="cursor: pointer; font-weight: 300"
+            onclick="rota('simulador')"
+          >
+            Simulador
+          </h4>
+          <h4 style="cursor: pointer; font-weight: 300">|</h4>
+          <h4
+            style="cursor: pointer; text-shadow: 1px 1px #0000009f"
+            onclick="rota('cadastro')"
+          >
+            Cadastro
+          </h4>
+          <h4 style="cursor: pointer; font-weight: 300" onclick="rota('login')">
+            Login
+          </h4>
         </div>
       </div>
     </header>
 
     <div id="boxInput">
-      <h3>Cadastre-se</h3><br><br>  
+      <h3>Cadastre-se</h3>
+      <br /><br />
       <div class="container">
         <div class="subCont">
           <b>Nome completo:</b>
-          <input type="text" id="nome" placeholder="Nome completo..."/><br>
+          <input type="text" id="nome" placeholder="Nome completo..." /><br />
           <b>Insira seu email:</b>
-          <input type="text" id="email" placeholder="Email..."/><br>
+          <input type="text" id="email" placeholder="Email..." /><br />
           <b>Insira o museu:</b>
-          <input type="text" id="museu" placeholder="Insira o Museu..."/><br>
+          <input type="text" id="museu" placeholder="Insira o Museu..." /><br />
         </div>
 
         <div class="subCont">
           <b>Insira seu CPF:</b>
-          <input type="text" id="cpf" placeholder="CPF..." /> <br/>
+          <input type="text" id="cpf" placeholder="CPF..." /> <br />
           <b>Insira a senha:</b>
-          <input type="password" id="passwd" placeholder="Senha..." /> <br/>
+          <input type="password" id="passwd" placeholder="Senha..." /> <br />
           <b>Confirme a senha:</b>
-          <input type="password" id="passwd2" placeholder="Confirme a senha..." /> <br/>
+          <input
+            type="password"
+            id="passwd2"
+            placeholder="Confirme a senha..."
+          />
+          <br />
         </div>
-    </div>
+      </div>
 
       <button id="validar" onclick="analisar()">Cadastre-se</button> <br />
       <div id="showtip">
@@ -71,6 +94,10 @@
     var mail = email.value;
     var senha = passwd.value;
     var confsenha = passwd2.value;
+
+    senhaerro.innerHTML = "";
+    cpferro.innerHTML = "";
+    showerro.innerHTML = "";
 
     var indiceArroba = mail.indexOf("@");
     var alphabet1 = [
@@ -134,8 +161,8 @@
 
     if (
       indiceArroba < 0 ||
-      !alphabet1.includes(mail.charAt(0).toUpperCase()) ||
-      special1.includes(mail.charAt(mail.length - 1).toUpperCase())
+      ((mail[0] < "A" || mail[0] > "Z") && (mail[0] < "a" || mail[0] > "z")) ||
+      special1.indexOf(mail[mail.length - 1]) > -1 // Se no último caractere do mail for maior que "-1", ou seja, se ele existe
     ) {
       showerro.innerHTML = `Insira um email válido!`;
       document.getElementById("showerro").classList.add("erro");
@@ -144,7 +171,7 @@
     if (senha !== confsenha) {
       senhaerro.innerHTML = `As senhas devem ser iguais!`;
       document.getElementById("senhaerro").classList.add("erro");
-      console.log("Passwords don't match!");
+      console.log("As senhas devem ser iguais!");
     }
 
     var cpfNumero = Number(cpfValue);
