@@ -80,16 +80,20 @@
           <h2 id="media1"></h2>
           <h3></h3>
           <h3></h3>
+          <div id="indicadorTemp">Temperatura</div>
+          <div id="indicadorUmid">Umidade</div>
         </div>
 
         <div class="temp">
           <canvas id="chartTemp" width="80" height="50"></canvas>
         </div>
+        <div class="TempIndica"></div>
 
         <div class="umid">
           <canvas id="chartUmid" width="80" height="50"></canvas>
         </div>
       </div>
+      
 
       <div class="info2">
         <div class="central-container" id="a1">
@@ -97,16 +101,20 @@
             <h1>Informações do quadro:</h1>
             <h2 id="media2"></h2>
             <h3></h3>
+            <div id="indicadorTemp2">Temperatura</div>
+            <div id="indicadorUmid2">Umidade</div>
           </div>
 
 
         <div class="temp">
           <canvas id="chartTemp1" width="80" height="50"></canvas>
         </div>
+        
 
         <div class="umid">
           <canvas id="chartUmid1" width="80" height="50"></canvas>
         </div>
+        
       </div>
     </div>
 
@@ -266,6 +274,7 @@ for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
     if (humChart.data.datasets[0].data[i] >= 55) {
         humAlerts++;
     }
+    humAvg1 = humChart.data.datasets[0].data[i]
 }
 
 for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
@@ -279,6 +288,7 @@ for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
     if (humChart1.data.datasets[0].data[i] >= 55) {
         humAlerts2++;
     }
+    humAvg2 = humChart1.data.datasets[0].data[i]
 }
 document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
 document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + tempAlerts2}</h3>`;
@@ -286,6 +296,112 @@ document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/2
 
 media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
         media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+
+        
+        
+        if((tempAvg1) < 26){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg1) < 30){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica2')
+ 
+  
+        }else {
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica1')
+ 
+
+
+        }
+
+        if(( humAvg1) < 50){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg1) < 70){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica1')
+
+
+        }
+
+
+        if((tempAvg2) < 26){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg2) < 30){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica2')
+  
+        }else {
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica1')
+
+
+        }
+
+        if(( humAvg2) < 50){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg2) < 70){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica1')
+
+
+        }
+      
+
+
+// if((tempAvg1 || tempAvg2) > 26 ){
+//   document.getElementById('indicadorTemp').classList.add('TempIndica2')
+//   document.getElementById('indicadorUmid').classList.add('UmidIndica2')
+// }
         
       function selection() {
         var chartStatus = Chart.getChart("chartTemp"); 
@@ -477,6 +593,7 @@ for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
     if (humChart1.data.datasets[0].data[i] >= 55) {
         humAlerts2++;
     }
+    
 }
 document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
 document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
@@ -484,6 +601,103 @@ document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/2
 
 media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
         media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+
+        if((tempAvg1) < 26){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg1) < 30){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica2')
+ 
+  
+        }else {
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica1')
+ 
+
+
+        }
+
+        if(( humAvg1) < 50){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg1) < 70){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica1')
+
+
+        }
+
+
+        if((tempAvg2) < 26){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg2) < 30){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica2')
+  
+        }else {
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica1')
+
+
+        }
+
+        if(( humAvg2) < 50){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg2) < 70){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica1')
+
+
+        }
       
       
 
@@ -662,6 +876,104 @@ document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/2
 
 media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
         media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+
+        if((tempAvg1) < 26){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg1) < 30){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica2')
+ 
+  
+        }else {
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica1')
+ 
+
+
+        }
+
+        if(( humAvg1) < 50){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg1) < 70){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica1')
+
+
+        }
+
+
+        if((tempAvg2) < 26){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg2) < 30){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica2')
+  
+        }else {
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica1')
+
+
+        }
+
+        if(( humAvg2) < 50){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg2) < 70){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica1')
+
+
+        }
+      
         }else {
         
       
@@ -699,7 +1011,7 @@ var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
         datasets: [
           {
             label: "Temperatura (°C)",
-            data: [25.5, 25.8, 26, 26, 26.5, 27],
+            data: [30, 30, 30, 30, 37, 34],
             color: "rgb(255,255,255)",
             backgroundColor: "rgba(255,255,255)",
             borderColor: "rgba(255,255,255)",
@@ -841,6 +1153,103 @@ document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/2
 
 media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
         media2.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg2}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts2} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts2}`;
+
+        if((tempAvg1) < 26){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg1) < 30){
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica2')
+ 
+  
+        }else {
+          document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp').classList.add('TempIndica1')
+ 
+
+
+        }
+
+        if(( humAvg1) < 50){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg1) < 70){
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid').classList.add('UmidIndica1')
+
+
+        }
+
+
+        if((tempAvg2) < 26){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica3')
+ 
+
+        }else if((tempAvg2) < 30){
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica2')
+  
+        }else {
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica1');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica2');
+          document.getElementById('indicadorTemp2').classList.remove('TempIndica3');
+          
+          document.getElementById('indicadorTemp2').classList.add('TempIndica1')
+
+
+        }
+
+        if(( humAvg2) < 50){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica3')
+ 
+
+        }else if(( humAvg2) < 70){
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica2')
+  
+        }else {
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica1');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica2');
+          document.getElementById('indicadorUmid2').classList.remove('UmidIndica3');
+          document.getElementById('indicadorUmid2').classList.add('UmidIndica1')
+
+
+        }
       
       }
       }

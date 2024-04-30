@@ -299,3 +299,70 @@ input:focus {
 #filtro {
   margin-right: 0;
 }
+
+.TempIndica1 {
+
+  background-color: #D37676;
+  color: #000;
+  height: 10px;
+  margin-bottom: 0;
+  border-radius: 3px;
+ 
+}
+
+.UmidIndica1 {
+  margin-top: 3px;
+  background-color: #D37676;
+  color: #000;
+  height: 10px;
+  margin-bottom: 0;
+  border-radius: 3px;
+  margin-top: 3px;
+  
+  
+}
+
+.TempIndica2 {
+
+  background-color: #EEC759;
+  color: #000;
+  height: 10px;
+  margin-bottom: 0;
+  border-radius: 3px;
+
+  
+}
+
+.UmidIndica2 {
+  margin-top: 3px;
+  background-color: #EEC759;
+  color: #000;
+  height: 10px;
+  margin-bottom: 0;
+  border-radius: 3px;
+  margin-top: 3px;
+  
+  
+}
+
+.TempIndica3 {
+
+  background-color: #A5DD9B;
+  color: #000;
+  height: 10px;
+  margin-bottom: 0;
+  margin-top: 3px;
+  
+  
+}
+
+.UmidIndica3 {
+  margin-top: 3px;
+  background-color: #A5DD9B;
+  color: #000;
+  height: 10px;
+  margin-bottom: 0;
+  border-radius: 3px;
+  margin-top: 3px;
+  
+}
