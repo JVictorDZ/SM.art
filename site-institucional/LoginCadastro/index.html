@@ -100,34 +100,7 @@
     showerro.innerHTML = "";
 
     var indiceArroba = mail.indexOf("@");
-    var alphabet1 = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
+
     var special1 = [
       "@",
       "(",
@@ -165,7 +138,7 @@
       special1.indexOf(mail[mail.length - 1]) > -1 // Se no último caractere do mail for maior que "-1", ou seja, se ele existe
     ) {
       showerro.innerHTML = `Insira um email válido!`;
-      document.getElementById("showerro").classList.add("erro");
+      document.getElementById("showerro").classList.add("erro"); // classList: Método JavaScript para inserir ou remover uma classe em um elemento HTML
     }
 
     if (senha !== confsenha) {
@@ -176,7 +149,7 @@
 
     var cpfNumero = Number(cpfValue);
 
-    if (isNaN(cpfNumero)) {
+    if (isNaN(cpfNumero)) { // isNaN: Método JavaScript o qual faz uma verificação se o dado não é um número e retorna um valor booleano
       cpferro.innerHTML = `Apenas números são aceitos no campo de CPF!`;
     } else if (cpfValue.length !== 11) {
       cpferro.innerHTML = `Insira um CPF válido!`;
