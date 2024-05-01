@@ -559,7 +559,6 @@ media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br>
       });
 
 
-        
       var tempAlerts = 0;
     var humAlerts = 0;
     var tempAlerts2 = 0;
@@ -570,6 +569,7 @@ media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br>
     var humAvg2 = 0
 
 for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+
     if (tempChart.data.datasets[0].data[i] >= 26) {
         tempAlerts++;
     }
@@ -580,6 +580,7 @@ for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
     if (humChart.data.datasets[0].data[i] >= 55) {
         humAlerts++;
     }
+    humAvg1 = humChart.data.datasets[0].data[i]
 }
 
 for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
@@ -593,7 +594,7 @@ for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
     if (humChart1.data.datasets[0].data[i] >= 55) {
         humAlerts2++;
     }
-    
+    humAvg2 = humChart1.data.datasets[0].data[i]
 }
 document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
 document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
@@ -847,6 +848,7 @@ var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
     var humAvg2 = 0
 
 for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+
     if (tempChart.data.datasets[0].data[i] >= 26) {
         tempAlerts++;
     }
@@ -857,6 +859,7 @@ for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
     if (humChart.data.datasets[0].data[i] >= 55) {
         humAlerts++;
     }
+    humAvg1 = humChart.data.datasets[0].data[i]
 }
 
 for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
@@ -870,6 +873,7 @@ for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
     if (humChart1.data.datasets[0].data[i] >= 55) {
         humAlerts2++;
     }
+    humAvg2 = humChart1.data.datasets[0].data[i]
 }
 document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
 document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
@@ -1123,6 +1127,7 @@ var humCtx1 = document.getElementById("chartUmid1").getContext("2d");
     var humAvg2 = 0
 
 for (var i = 0; i < tempChart.data.datasets[0].data.length; i++) {
+
     if (tempChart.data.datasets[0].data[i] >= 26) {
         tempAlerts++;
     }
@@ -1133,6 +1138,7 @@ for (var i = 0; i < humChart.data.datasets[0].data.length; i++) {
     if (humChart.data.datasets[0].data[i] >= 55) {
         humAlerts++;
     }
+    humAvg1 = humChart.data.datasets[0].data[i]
 }
 
 for (var i = 0; i < tempChart1.data.datasets[0].data.length; i++) {
@@ -1146,6 +1152,7 @@ for (var i = 0; i < humChart1.data.datasets[0].data.length; i++) {
     if (humChart1.data.datasets[0].data[i] >= 55) {
         humAlerts2++;
     }
+    humAvg2 = humChart1.data.datasets[0].data[i]
 }
 document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
 document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
