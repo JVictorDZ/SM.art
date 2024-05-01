@@ -93,11 +93,6 @@ insert into sensor values
 (default, 'Sensor 1', 1, 1),
 (default, 'Sensor 2', 1.5, 2),
 (default, 'Sensor 3',2, 3);
-    
-insert into registroSensor values
-(1, 1, 25.5, 60.2, '2024-04-14 12:00:00', 1),
-(2, 3, 15.0, 35.3, '2024-04-14 13:00:00', 2),
-(3, 2, 32.5, 50.0, '2024-04-14 14:00:00', 3);
 
 select (registro.umidade * sensor.fator) as Umidade, 
 (registro.temperatura * sensor.fator) as Temperatura, 
@@ -116,22 +111,34 @@ select * from teste where nomeSensor = 'Sensor3';
 select * from sensor;
 select * from museu;
 select * from parametro;
-select*from alerta;
+select * from alerta;
 
 select * from usuario join museu
 on usuario.fkMuseu = museu.idMuseu;
-    
-select * from sensor join registroSensor
-on idSensor = fkSensor;
 
-    select usuario.idUsuario, usuario.nome as NomeUsuario, cpf,
-       museu.idMuseu, cnpj,
-       sala.idSala, qtdObras as 'Quantidade de obbras',
-       sensor.idSensor, sensor.nome as NomeSensor,
-       cc.idCondicao, cc.descricao as Descricao, cc.tempMinima, cc.tempMax, cc.umidadeMinima, cc.umidadeMaxima, cc.dataHora,
-       r.idRegistro, r.temperatura, r.umidade, r.dataHora as DataHoraRegistro
-		from cadastro c
-		join museu m on c.idCadastro = m.fkCadastro
-		join sensor s on m.idMuseu = s.fkMuseu
-		join registroSensor r on s.idSensor = r.fkSensor
-		join condicoesClima cc on r.fkCondicaoClima = cc.idCondicao;
+-- select para obter informações de registro de sensores e salas de um museu específico
+select registroSensor.temperatura as temperatura, 
+registroSensor.umidade as umidade, 
+sensor.nome as 'Nome do sensor',
+sala.nome as 'Nome da sala',
+museu.logradouro as 'Endereço do museu'
+from registroSensor
+join sensor on registroSensor.idSensor = sensor.idSensor
+join sala on sensor.fkSala = sala.idSala
+join museu on sala.fkMuseu = museu.idMuseu
+where museu.idMuseu = 1;
+
+-- selecionando dados dos sensores registrados com os parâmetros e alertas associados a eles
+select registroSensor.temperatura as temperatura,
+registroSensor.umidade as umidade,
+sensor.nome as 'Nome do sensor',
+parametro.temperaturaMin as 'Temperatura Mínima',
+parametro.temperaturaMax as 'Temperatura Máxima',
+parametro.umidadeMin as 'Umidade Mínima',
+parametro.umidadeMax as 'Umidade Máxima',
+alerta.descricao as 'Descrição do Alerta'
+from registroSensor
+join sensor on registroSensor.idSensor = sensor.idSensor
+join parametro on sensor.idSensor = parametro.fkSensor
+left join alerta on registroSensor.idRegistro = alerta.fkRegistro
+and sensor.idSensor = alerta.fkSensor;
