@@ -1,6 +1,8 @@
+
 body {
   background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg);
   margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 
@@ -307,6 +309,9 @@ input:focus {
   height: 10px;
   margin-bottom: 0;
   border-radius: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: medium;
  
 }
 
@@ -318,6 +323,11 @@ input:focus {
   margin-bottom: 0;
   border-radius: 3px;
   margin-top: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: medium;
+
+  
   
   
 }
@@ -329,6 +339,10 @@ input:focus {
   height: 10px;
   margin-bottom: 0;
   border-radius: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: medium;
+
 
   
 }
@@ -341,6 +355,10 @@ input:focus {
   margin-bottom: 0;
   border-radius: 3px;
   margin-top: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: medium;
+
   
   
 }
@@ -352,6 +370,11 @@ input:focus {
   height: 10px;
   margin-bottom: 0;
   margin-top: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: medium;
+  
+
   
   
 }
@@ -364,5 +387,10 @@ input:focus {
   margin-bottom: 0;
   border-radius: 3px;
   margin-top: 3px;
+  height: 25px;
+  text-align: center;
+  font-size: medium;
+
   
 }
+
