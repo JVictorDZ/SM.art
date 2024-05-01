@@ -1,5 +1,3 @@
-
-
 explicacao.innerHTML = "<h3>Neste calculo levamos em consideração dois fatores: <br><br> 1-Os preços médios de restauração para cada quadro, sendo: R$7500 para pequenos; R$18750 para quadros médios; R$18750, no minímo, para quadros a partir de 1 metro. <br><br> 2-Consideramos as temperaturas como: 21°C como frio; 24°C como neutro; 30°C como quente.</h3>"
 function Gastos(){
 

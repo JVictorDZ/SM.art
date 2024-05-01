@@ -2,6 +2,11 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+html{
+    /*Esse atributo da uma transição suave para a rolagem de tela*/
+    scroll-behavior: smooth;
+}
+
 body{
     margin: 0;
     background-image: url("https://static.vecteezy.com/ti/vetor-gratis/p3/4122863-fundo-cinza-branco-com-textura-suave-de-aquarela-vetor.jpg");
@@ -27,6 +32,7 @@ header{
 input{
     border-radius: 10px;
     outline: none;
+    text-align: center;
 }
 
 .logo{
@@ -82,6 +88,7 @@ input{
     /* border: solid 3px black; */
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 1px 1px 3px 2px #040405;
 }
 
 
