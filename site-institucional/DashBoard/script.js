@@ -6,7 +6,9 @@ function rota(valor){
     window.location.href = '../LoginCadastro/login.html';
   } else if(valor == 'cadastro'){
     window.location.href = '../LoginCadastro/index.html';
-  } else if (valor == 'telaInicial'){
+  } if (valor == 'telaInicial'){
     window.location.href = '../telaInicial/index.html';
+  } else if (valor == 'telaAjuda'){
+    window.location.href = 'http://localhost:3333'
   }
 }
