@@ -9,6 +9,6 @@ function rota(valor){
   } if (valor == 'telaInicial'){
     window.location.href = '../telaInicial/index.html';
   } else if (valor == 'telaAjuda'){
-    window.location.href = 'http://localhost:3333'
+    window.location.href = 'http://localhost:3330'
   }
 }
