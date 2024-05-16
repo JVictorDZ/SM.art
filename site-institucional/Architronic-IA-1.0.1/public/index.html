@@ -7,14 +7,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <header>
+        <div id="div_navbar">
+          <div class="logoTipo" onclick="rota('telaInicial')">
+            <img src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="logo" />
+            <h2>SM.Art</h2>
+          </div>
+    
+          <div class="navBar">
+            <h4 style="cursor: pointer; font-weight: 300" onclick="rota('telaInicial')">
+              Home 
+            </h4>
+            |
+            <h4 style="cursor: pointer; font-weight: 300" onclick="rota('simulador')">
+                <a href="..//DashBoard/dash.html">DashBoard</a>
 
-    <div id="container">
-        <h1>Architronic-IA</h1>
+            </h4>
+            <h4 style="cursor: pointer; font-weight: 300"></h4>
+          </div>
+        </div>
+      </header>
+
+      <div class="textoMSG">
+        <h3>Assistente virtual: SM<span>AI</span>RT</h3>
+        <h4>Com ele, as respostas de suas dúvidas ficam dinâmicas e precisas. O SMAIRT pode responder dúvidas e dar dicas sobre resolução de problemas quanto aos seus sensores.</h4>
+    </div>
+
+      <div id="container">
+        <h1>SMAIRT</h1>
         <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
         <br><br>
         <button onclick="gerarResposta()">Gerar Resposta</button>
-        <h3>Resposta da IA:</h3>
+        <h3>Resposta do assistente:</h3>
         <div id="resposta"></div>
+    </div>
+    
+    <div class="textoMSG2">
+        <h5>As respostas podem conter um grau de margem de erro.</h5>
     </div>
 
     <script>
