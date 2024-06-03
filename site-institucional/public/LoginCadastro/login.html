@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="imagex/png" href="https://i.postimg.cc/FKyZwrDC/download-1.png">
+    <title>SM.ART | Login</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="csslog.css" />
+</head>
+<body>
+    <header>
+        <div class="logoTipo">
+            <img src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="logo"> 
+            <h2>SM.Art</h2>
+        </div>
+        <div class="navBar">
+            <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('telaInicial')">Home</h4>
+            <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('simulador')">Simulador</h4>
+            <h4 style="cursor: pointer; font-weight: 300;">|</h4>
+            <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('cadastro')">Cadastro</h4>
+            <h4 style="cursor: pointer; text-shadow: 1px 1px #0000009f;" onclick="rota('login')">Login</h4>
+        </div>
+    </header>
+    
+    <div id="boxInput">
+        <h3>Login</h3>
+        <b>Insira seu email:</b>
+        <input type="text" id="email" placeholder="Email..." /> <br />
+        <b>Insira sua senha:</b>
+        <input type="password" id="passwd" placeholder="Senha..." /> <br />
+        <div id="lembraSenha1">
+            Lembrar senha <input type="checkbox" id="lembraSenha"> <br>
+        </div>
+        <button id="validar" onclick="analisar()">Fazer Login</button> <br />
+        <a id="esqueceusenha" href="redefinirSenha.html">Esqueceu a senha?</a> 
+        <br />
+        <div id="senhaerro"></div>
+        <div id="showerro"></div>
+        <br />
+    </div>
+</body>
+</html>
+
+
+<script>
+function analisar() {
+    var mail = document.getElementById('email').value;
+    var senha = document.getElementById('passwd').value;
+
+    var indiceArroba = mail.indexOf("@");
+    var special1 = ['@', '(', '~', '!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '+', '=', '`', '|', '', '()', '{}', '[]', ':', ';', '<>', ';', '?', ')', '}'];
+
+    document.getElementById("senhaerro").innerHTML = "";
+    document.getElementById("showerro").innerHTML = "";
+
+    if (
+        indiceArroba < 0 ||
+        ((mail[0] < "A" || mail[0] > "Z") && (mail[0] < "a" || mail[0] > "z")) ||
+        special1.indexOf(mail[mail.length - 1]) > -1
+    ) {
+        document.getElementById("showerro").innerHTML = `Insira um email válido!`;
+        document.getElementById("showerro").classList.add("erro");
+        return;
+    }
+
+    if (mail.length < 7 || mail.length > 45) {
+        document.getElementById("showerro").innerHTML = `Caracteres fora do intervalo ideal!`;
+        return;
+    }
+
+    if (senha === '') {
+        document.getElementById("senhaerro").innerHTML = `Preencha o campo senha!`;
+        return;
+    }
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            emailServer: mail,
+            senhaServer: senha
+        }),
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Email e/ou senha inválido(s)");
+        }
+    })
+    .then(data => {
+        alert("Login realizado com sucesso!");
+
+        // Redireciona para o dashboard ou qualquer outra página
+        window.location.href = "../DashBoard/dash.html";
+
+        // Exibir as salas associadas ao usuário
+        // console.log(data.salas);
+        // let salasContainer = document.createElement('div');
+        // salasContainer.id = 'salasContainer';
+        // document.body.appendChild(salasContainer);
+
+        // data.salas.forEach(sala => {
+        //     let salaDiv = document.createElement('div');
+        //     salaDiv.classList.add('sala');
+        //     salaDiv.innerHTML = `<h4>${sala.nome}</h4><p>Quantidade de Obras: ${sala.qtdObras}</p>`;
+        //     salasContainer.appendChild(salaDiv);
+        // });
+    })
+    .catch(error => {
+        document.getElementById("showerro").innerHTML = `Erro: ${error.message}`;
+    });
+}
+
+</script>

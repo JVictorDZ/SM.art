@@ -67,6 +67,7 @@
     <div id="senhaerro"></div>
     <div id="showerro"></div>
     <div id="cpferro"></div>
+
   </div>
 </body>
 
@@ -74,46 +75,78 @@
 
 <script>
   function analisar() {
-    var cpfValue = cpf.value;
-    var tamanhoCPF = cpfValue.length;
-    var mail = email.value;
-    var senha = passwd.value;
-    var confsenha = passwd2.value;
+    var cpfValue = document.getElementById('cpf').value;
+    var mail = document.getElementById('email').value;
+    var senha = document.getElementById('passwd').value;
+    var confsenha = document.getElementById('passwd2').value;
+    var nomeVar = document.getElementById('nome').value;
 
-    senhaerro.innerHTML = "";
-    cpferro.innerHTML = "";
-    showerro.innerHTML = "";
+    document.getElementById('senhaerro').innerHTML = "";
+    document.getElementById('cpferro').innerHTML = "";
+    document.getElementById('showerro').innerHTML = "";
 
     var indiceArroba = mail.indexOf("@");
 
-    var special1 = [ "@", "(", "~", "!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "=", "`", "|", "", "()", "{}", "[]", ":", ";", "<>", ";", "?", ")", "}"];
+    var special1 = ["@", "(", "~", "!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "=", "`", "|", "", "()", "{}", "[]", ":", ";", "<>", ";", "?", ")", "}"];
 
     if (
       indiceArroba < 0 ||
       ((mail[0] < "A" || mail[0] > "Z") && (mail[0] < "a" || mail[0] > "z")) ||
-      special1.indexOf(mail[mail.length - 1]) > -1 // Se no último caractere do mail for maior que "-1", ou seja, se ele existe
+      special1.indexOf(mail[mail.length - 1]) > -1
     ) {
-      showerro.innerHTML = `Insira um email válido!`;
-      document.getElementById("showerro").classList.add("erro"); // classList: Método JavaScript para inserir ou remover uma classe em um elemento HTML
+      document.getElementById('showerro').innerHTML = `Insira um email válido!`;
+      document.getElementById("showerro").classList.add("erro");
     }
 
     if (senha !== confsenha) {
-      senhaerro.innerHTML = `As senhas devem ser iguais!`;
+      document.getElementById('senhaerro').innerHTML = `As senhas devem ser iguais!`;
       document.getElementById("senhaerro").classList.add("erro");
       console.log("As senhas devem ser iguais!");
     }
 
     var cpfNumero = Number(cpfValue);
 
-    if (isNaN(cpfNumero)) { // isNaN: Método JavaScript o qual faz uma verificação se o dado não é um número e retorna um valor booleano
-      cpferro.innerHTML = `Apenas números são aceitos no campo de CPF!`;
+    if (isNaN(cpfNumero)) {
+      document.getElementById('cpferro').innerHTML = `Apenas números são aceitos no campo de CPF!`;
     } else if (cpfValue.length !== 11) {
-      cpferro.innerHTML = `Insira um CPF válido!`;
-    } else {
+      document.getElementById('cpferro').innerHTML = `Insira um CPF válido!`;
     }
 
     if (senha.length < 8) {
-      senhaerro.innerHTML = ` As senhas precisam ter ao menos 8 caracteres! <br>`;
+      document.getElementById('senhaerro').innerHTML = ` As senhas precisam ter ao menos 8 caracteres! <br>`;
     }
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: mail,
+        senhaServer: senha,
+        cpfServer: cpfValue
+      }),
+    })
+    .then(resposta => {
+      if (resposta.ok) {
+        document.getElementById('cpferro').style.display = "block";
+        document.getElementById('showerro').innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+        setTimeout(() => {
+          window.location = "login.html";
+        }, 2000);
+        limparFormulario();
+        finalizarAguardar();
+      } else {
+        throw new Error("Houve um erro ao tentar realizar o cadastro!");
+      }
+    })
+    .catch(erro => {
+      document.getElementById('cpferro').style.display = "block";
+      document.getElementById('showerro').innerHTML = `Erro: ${erro.message}`;
+      finalizarAguardar();
+    });
+
+    return false;
   }
 </script>
