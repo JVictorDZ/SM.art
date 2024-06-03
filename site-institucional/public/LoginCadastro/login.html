@@ -94,6 +94,9 @@ function analisar() {
     .then(data => {
         alert("Login realizado com sucesso!");
 
+        sessionStorage.setItem('userEmail', mail);
+
+
         // Redireciona para o dashboard ou qualquer outra página
         window.location.href = "../DashBoard/dash.html";
 

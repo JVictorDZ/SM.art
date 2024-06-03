@@ -1,3 +1,6 @@
+
+
+
 function rota(valor){
   // alert(valor);
   if(valor == 'simulador'){

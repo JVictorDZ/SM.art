@@ -18,7 +18,7 @@
       </div>
 
       <div class="navBar">
-        <h4 style="cursor: pointer; text-shadow: 1px 1px #fdfdfd9f;" onclick="rota('login')">Deslogar-se</h4>
+        <h4 style="cursor: pointer; text-shadow: 1px 1px #fdfdfd9f;" onclick="Deslogar()">Deslogar-se</h4>
       </div>
     </header>
 
@@ -1268,5 +1268,12 @@ media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br>
 </html>
 
 <script>
+
+
+function Deslogar() {
+  sessionStorage.clear();
+
+  window.location.href = '../LoginCadastro/login.html'; 
+}
  
 </script>
