@@ -170,6 +170,20 @@ header {
   margin-left: 100px;
 }
 
+.info1 li{
+  display: flex;
+  position: relative;
+  font-size: 35px;
+  font-weight: bold;
+  justify-content: center;
+  top: 80px;
+  left: 570px;
+  width: 190px;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-image: linear-gradient(to bottom, rgb(44, 136, 196), rgb(117, 188, 235));
+}
+
 
 
 img {
