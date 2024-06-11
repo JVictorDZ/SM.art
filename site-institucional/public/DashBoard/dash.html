@@ -123,6 +123,20 @@
     </div>
 
     <script>
+
+      fetch('caminho', {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(response =>{
+        if(response.status == 200){
+          alert('Rota acessada');
+        } else{
+          alert('Problema de requisiçao');
+        }
+      });
+      
       var tempCtx = document.getElementById("chartTemp").getContext("2d");
       var humCtx = document.getElementById("chartUmid").getContext("2d");
       var tempCtx1 = document.getElementById("chartTemp1").getContext("2d");
