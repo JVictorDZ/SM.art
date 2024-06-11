@@ -1,6 +1,6 @@
 create database sprint2;
 use sprint2;
-drop database sprint2;
+-- drop database sprint2;
 create table museu(
 idMuseu int primary key auto_increment,
 cnpj char (14), 
@@ -112,6 +112,7 @@ select * from sensor;
 select * from museu;
 select * from parametro;
 select * from alerta;
+select * from usuario;
 
 select * from usuario join museu
 on usuario.fkMuseu = museu.idMuseu;
