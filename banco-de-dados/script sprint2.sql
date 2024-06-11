@@ -114,6 +114,7 @@ select * from sensor;
 select * from museu;
 select * from parametro;
 select * from alerta;
+select * from usuario;
 
 select * from usuario join museu
 on usuario.fkMuseu = museu.idMuseu;

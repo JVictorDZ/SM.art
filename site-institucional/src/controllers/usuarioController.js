@@ -66,6 +66,7 @@ function obterSalasESensores(req, res) {
 
 function criptografia(senha) {
     let firstl = ['a', 'e', 'i', 'o', 'u'];
+    let numl = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     let veriV = 0;
 
     senha = senha.toLowerCase();
@@ -95,7 +96,36 @@ function criptografia(senha) {
             senha = senha.replace(firstl[i], '76');
         }
 
-        console.log('\n\nSenha com criptografia: ' + senha)
+        console.log('\n\nSenha com criptografia vocálica: ' + senha)
+    }
+
+
+    for (let i = 0; i < numl.length; i++) {
+        veriV = senha.indexOf(numl[i]);
+        
+        if (veriV == 0) {
+            senha = senha.replace(numl[i], 'p0');
+        } 
+        if (veriV == 1) {
+            senha = senha.replace(numl[i], '%q');
+        } 
+        if (veriV == 2) {
+            senha = senha.replace(numl[i], '9');
+        } 
+        if (veriV == 3) {
+            senha = senha.replace(numl[i], 'tR');
+        } 
+        if(veriV == senha.length - 1){
+            senha = senha.replace(numl[i], 'r*');
+        }
+        if(veriV == senha.length - 2){
+            senha = senha.replace(numl[i], '45S');
+        }
+        if(veriV == senha.length - 3){
+            senha = senha.replace(numl[i], 'AB45');
+        }
+
+        console.log('\n\nSenha com criptografia numérica: ' + senha)
     }
 
     return senha;
