@@ -135,8 +135,8 @@
         setTimeout(() => {
           window.location = "login.html";
         }, 2000);
-        limparFormulario();
-        finalizarAguardar();
+        // limparFormulario();
+        // finalizarAguardar();
       } else {
         throw new Error("Houve um erro ao tentar realizar o cadastro!");
       }
@@ -144,7 +144,7 @@
     .catch(erro => {
       document.getElementById('cpferro').style.display = "block";
       document.getElementById('showerro').innerHTML = `Erro: ${erro.message}`;
-      finalizarAguardar();
+      // finalizarAguardar();
     });
 
     return false;

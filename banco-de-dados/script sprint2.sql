@@ -1,6 +1,6 @@
 create database sprint2;
 use sprint2;
-drop database sprint2;
+-- drop database sprint2;
 create table museu(
 idMuseu int primary key auto_increment,
 cnpj char (14), 
@@ -28,6 +28,8 @@ fkMuseu int,
 constraint fkMuseuUsuario foreign key (fkMuseu)
 references museu (idMuseu)
 );
+
+select * from usuario;
 
 create table sensor(
 idSensor int primary key auto_increment, 
@@ -142,3 +144,5 @@ join sensor on registroSensor.idSensor = sensor.idSensor
 join parametro on sensor.idSensor = parametro.fkSensor
 left join alerta on registroSensor.idRegistro = alerta.fkRegistro
 and sensor.idSensor = alerta.fkSensor;
+
+select * from usuario;
