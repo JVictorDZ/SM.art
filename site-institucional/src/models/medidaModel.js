@@ -1,5 +1,12 @@
 var database = require("../database/config");
 
+
+function buscarBananinha() {
+    var instrucaoSql = `SELECT * FROM registroSensor ORDER BY idRegistro DESC LIMIT 7`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function buscarUltimasMedidas(idAquario, limite_linhas) {
 
     var instrucaoSql = `SELECT 
@@ -30,6 +37,7 @@ function buscarMedidasEmTempoReal(idAquario) {
 }
 
 module.exports = {
+    buscarBananinha,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 }
