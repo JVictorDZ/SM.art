@@ -3,6 +3,10 @@ var router = express.Router();
 
 var medidaController = require("../controllers/medidaController");
 
+router.get('/bananinha', function (req, res) {
+    medidaController.buscarBananinha(req, res)
+})
+
 router.get("/ultimas/:idAquario", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
