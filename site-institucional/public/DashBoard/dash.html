@@ -129,6 +129,8 @@
       var plotar = true;
       var vetorUmidData = [];
       var vetorTempData = [];
+      var vetorUmidDataFator = [];
+      var vetorTempDataFator = [];
       var tempChart = undefined;
       var humChart = undefined;
       var tempChart1 = undefined;
@@ -140,16 +142,16 @@
         vetorTempData = [];
         vetorUmidData = [];
 
-        fetch('/medidas/bananinha/${idRegistro}', {
+        fetch('/medidas/bananinha', {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",
           },
         }).then(response => {
-          console.log(response);
+          // console.log(response);
 
           response.json().then(respostaFormatada => {
-            console.log(respostaFormatada);
+            // console.log(respostaFormatada);
 
 
             for (var i = 0; i < respostaFormatada.length; i++) {
@@ -158,8 +160,31 @@
               vetorTempData.push(itemAtual.temperatura);
             }
 
-            console.log(vetorTempData);
-            console.log(vetorUmidData);
+            const min = -50;
+            const max = 50;
+            const intervalo = max - min;
+            
+            
+            vetorTempDataFator = [];
+            vetorUmidDataFator = [];
+
+            vetorTempDataFator = vetorTempData.map(atual => {
+              atual = Number(atual);
+              let aleatorio = Math.random() * intervalo + min;
+              let newTemp = Math.round(atual + atual * (aleatorio / 100));
+
+              return newTemp;
+            });
+
+            vetorUmidDataFator = vetorUmidData.map(atual => {
+              atual = Number(atual);
+              let aleatorio = Math.random() * intervalo + min;
+              let newTemp = Math.round(atual + atual * (aleatorio / 100));
+
+              return newTemp;
+            });
+
+            console.log('Novo vetor gerado' + vetorTempDataFator)
 
             if (plotar == true) {
               plotarGrafico();
@@ -250,7 +275,7 @@
           datasets: [
             {
               label: "Temperatura (°C)",
-              data: [26, 26.5, 27, 26, 27, 26.5],
+              data: vetorTempDataFator,
               color: "rgb(255,255,255)",
               backgroundColor: "rgba(255,255,255)",
               borderColor: "rgba(255,255,255)",
@@ -270,7 +295,7 @@
           datasets: [
             {
               label: "Umidade (%)",
-              data: [50, 51, 52, 50, 53, 55],
+              data: vetorUmidDataFator,
               color: "rgb(255,255,255)",
               backgroundColor: "rgba(255,255,255)",
               borderColor: "rgba(255,255,255)",
@@ -310,27 +335,25 @@
 
         setTimeout(function () {
           buscarDados();
-        }, 500);
+        }, 2000);
       }
 
 
       function atualizarGrafico() {
-        tempChart.data.datasets[0].data = vetorTempData; 
+        tempChart.data.datasets[0].data = vetorTempData;
         humChart.data.datasets[0].data = vetorUmidData;
 
-        // aplicar logica de gerar fator
-
-        tempChar1.data.datasets[0].data = novoVetorTempData;
-        humChar1.data.datasets[0].data = novoVetorUmidpData;
+        tempChart1.data.datasets[0].data = vetorTempDataFator;
+        humChart1.data.datasets[0].data = vetorUmidDataFator;
 
         tempChart.update();
         humChart.update();
         tempChart1.update();
         humChart1.update();
-        
+
         setTimeout(function () {
           buscarDados();
-        }, 500);
+        }, 2000);
       }
 
       var tempAlerts = 0;
@@ -1357,21 +1380,4 @@
 
     window.location.href = '../LoginCadastro/login.html';
   }
-
-  /*
-  for (var i = 0; i < vetor.length; i++) {
-    var atual = vetor[i];
-    console.log(atual);
-
-    var min = -50;
-    var max = 50;
-    var intervalo = max - min;
-    var aleatorio = Math.random() * intervalo + min;
-    console.log(aleatorio);
-
-    var novoAtual = atual +  atual * (aleatorio / 100)
-    console.log(novoAtual); 
-
-    novoVetor.push(novoAtual);
-} */
 </script>
