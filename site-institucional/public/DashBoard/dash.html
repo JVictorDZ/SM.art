@@ -168,6 +168,9 @@
             respostaFormatada.reverse();
             vetorTempHora = [];
 
+            tempAlerts = 0;
+            humAlerts = 0;
+
             for (var i = 0; i < respostaFormatada.length; i++) {
               var itemAtual = respostaFormatada[i];
               
@@ -177,10 +180,8 @@
               
               vetorTempHora.push(`${hours}:${minutes}`);
               
-              tempAlerts = 0;
-              humAlerts = 0;
-              
-              if(Number(itemAtual.temperatura) > 25){
+              console.log('Temperatura atual: ' + Number(itemAtual.temperatura));
+              if(Number(itemAtual.temperatura) > 26){
                 tempAlerts++;
                 // document.getElementById('indicadorTemp').classList.remove('TempIndica1');
                 }
@@ -245,6 +246,7 @@
               atualizarGrafico();
             }
           })
+
 
         });
       }
