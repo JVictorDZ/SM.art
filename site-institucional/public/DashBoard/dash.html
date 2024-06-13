@@ -67,12 +67,9 @@
       <img src="imagens/frame-svgrepo-com.svg" alt="" />
       <h3>Quantidade de quadros:2</h3>
     </div>
-    <div class="Indicador" id="q12">
-      <h3>Total de Quadros</h3>
-    </div>
     <div class="Indicador" id="q13">
-      <h3>Total de Quadros</h3>
-      <h5>22</h5>
+      <h2>Total de Quadros</h2>
+      <h3>2</h3>
     </div>
   </div>
   </div>
@@ -99,11 +96,12 @@
       </div>
     </div>
 
+    <hr>
 
     <div class="info2">
       <li>Quadro 2</li>
       <div class="central-container" id="a1">
-        <div class="Indicador2" id="q1" id="q">
+        <div class="Indicador2" id="q2" id="q">
           <h1>Informações do quadro:</h1>
           <h2 id="media2"></h2>
           <h3></h3>
@@ -126,14 +124,30 @@
 
     <script>
       var plotar = true;
+
       var vetorUmidData = [];
       var vetorTempData = [];
+      var vetorTempHora = [];
+
+
       var vetorUmidDataFator = [];
       var vetorTempDataFator = [];
+
+
       var tempChart = undefined;
       var humChart = undefined;
       var tempChart1 = undefined;
       var humChart1 = undefined;
+
+      // ALERTAS:
+      var tempAlerts = 0;
+      var humAlerts = 0;
+      var tempAlerts2 = 0;
+      var humAlerts2 = 0;
+      var tempAvg1 = 0
+      var tempAvg2 = 0
+      var humAvg1 = 0
+      var humAvg2 = 0
 
       window.onload = buscarDados;
 
@@ -147,22 +161,43 @@
             "Content-Type": "application/json",
           },
         }).then(response => {
-          // console.log(response);
 
           response.json().then(respostaFormatada => {
-            // console.log(respostaFormatada);
-
+            respostaFormatada.reverse();
+            vetorTempHora = [];
 
             for (var i = 0; i < respostaFormatada.length; i++) {
               var itemAtual = respostaFormatada[i];
-              vetorUmidData.push(itemAtual.umidade);
-              vetorTempData.push(itemAtual.temperatura);
-            }
+              
+              let horario = new Date(itemAtual.dataHora);
+              let hours = horario.getHours();
+              let minutes = horario.getMinutes();
+              
+              vetorTempHora.push(`${hours}:${minutes}`);
+              
+              tempAlerts = 0;
+              humAlerts = 0;
+              
+              if(Number(itemAtual.temperatura) > 25){
+                tempAlerts++;
+                // document.getElementById('indicadorTemp').classList.remove('TempIndica1');
+                }
+                if(Number(itemAtual.umidade) > 56){
+                  humAlerts++;
+                  }
+                  
+                  vetorUmidData.push(itemAtual.umidade);
+                  vetorTempData.push(itemAtual.temperatura);
+                  }
+                  
+            console.log(vetorTempHora);
+
+            document.getElementById("q1").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts}</h3>`;
+            document.getElementById("q1").innerHTML += `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts}</h3>`;
 
             const min = -50;
             const max = 50;
             const intervalo = max - min;
-            
             
             vetorTempDataFator = [];
             vetorUmidDataFator = [];
@@ -172,18 +207,34 @@
               let aleatorio = Math.random() * intervalo + min;
               let newTemp = Math.round(atual + atual * (aleatorio / 100));
 
+              if(Number(atual) > 24){
+                tempAlerts2++;
+              }
+
               return newTemp;
             });
 
             vetorUmidDataFator = vetorUmidData.map(atual => {
               atual = Number(atual);
+
               let aleatorio = Math.random() * intervalo + min;
-              let newTemp = Math.round(atual + atual * (aleatorio / 100));
+              let newUmid = Math.round(atual + atual * (aleatorio / 100));
 
-              return newTemp;
+              if(atual > 56){
+                humAlerts2++;
+              }
+
+              return newUmid;
             });
+            
+            document.getElementById("q2").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts2}</h3>`;
+            document.getElementById("q2").innerHTML += `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts2}</h3>`;
+            
+            tempAlerts2 = 0;
+            humAlerts2 = 0;
 
-            console.log('Novo vetor gerado' + vetorTempDataFator)
+
+            // console.log('Novo vetor gerado' + vetorTempDataFator)
 
             if (plotar == true) {
               plotarGrafico();
@@ -198,9 +249,9 @@
 
       function plotarGrafico() {
 
-        console.log('plotando gráficos');
-        console.log(vetorTempData);
-        console.log(vetorUmidData);
+        // console.log('plotando gráficos');
+        // console.log(vetorTempData);
+        // console.log(vetorUmidData);
 
         var tempCtx = document.getElementById("chartTemp").getContext("2d");
         var humCtx = document.getElementById("chartUmid").getContext("2d");
@@ -230,7 +281,7 @@
         };
 
         var tempData = {
-          labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+          labels: vetorTempHora,
           datasets: [
             {
               label: "Temperatura (°C)",
@@ -250,7 +301,7 @@
         };
 
         var humData = {
-          labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+          labels: vetorTempHora,
           datasets: [
             {
               label: "Umidade (%)",
@@ -270,7 +321,7 @@
         };
 
         var tempData1 = {
-          labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+          labels: vetorTempHora,
           datasets: [
             {
               label: "Temperatura (°C)",
@@ -290,7 +341,7 @@
         };
 
         var humData1 = {
-          labels: ["12:30", "13:30", "14:30", "15:30", "16:30", "17:30"],
+          labels: vetorTempHora,
           datasets: [
             {
               label: "Umidade (%)",
@@ -354,15 +405,6 @@
           buscarDados();
         }, 2000);
       }
-
-      var tempAlerts = 0;
-      var humAlerts = 0;
-      var tempAlerts2 = 0;
-      var humAlerts2 = 0;
-      var tempAvg1 = 0
-      var tempAvg2 = 0
-      var humAvg1 = 0
-      var humAvg2 = 0
 
       /*
       
@@ -701,8 +743,6 @@
             }
             humAvg2 = humChart1.data.datasets[0].data[i]
           }
-          document.getElementById("q12").innerHTML = `<h3><img src="../DashBoard/imagens/high-temperature.svg" alt="" />Alertas de temperatura: ${tempAlerts + tempAlerts2}</h3>`;
-          document.getElementById("q13").innerHTML = `<h3><img src="../DashBoard/imagens/219816.png" alt="" />Alertas de umidade: ${humAlerts + humAlerts2}</h3>`;
 
 
           media1.innerHTML = `Temperatura média das últimas 6 horas: ${tempAvg1}°C <br> <br> Alertas de temperatura nas últimas 6 horas: ${tempAlerts} <br> <br> Alertas de umidade nas últimas 6 horas:${humAlerts}`;
