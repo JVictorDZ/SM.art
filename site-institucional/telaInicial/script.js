@@ -11,7 +11,11 @@ function rota(valor){
     window.location.href = '../LoginCadastro/index.html';
   } else if('sobrenos'){
     window.location.href = '../telaSobreNos/index.html';
-  } else{
+  } else if(valor == 'manual'){
+    window.location.href = "../DashBoard/manuak.html";
+
+  }else {
     alert('Nenhuma página com essa referência encontrada!');
+
   }
 }

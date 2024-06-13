@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Instalação SM.Art</title>
+  <link rel="stylesheet" href="dash2.css">
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <div class="logoTipo">
+        <img src="https://i.postimg.cc/FKyZwrDC/download-1.png" alt="logo"> 
+        <h2>SM.Art</h2>
+    </div>
+    <div class="navBar">
+        <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('telaInicial')">Home</h4>
+        <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('simulador')">Simulador</h4>
+        <h4 style="cursor: pointer; font-weight: 300;">|</h4>
+        <h4 style="cursor: pointer; font-weight: 300;" onclick="rota('dashboard')">DashBoard  </h4>
+       
+
+    </div>
+</header>
+
+  <div class="information">
+    <h1>Instalação e Configuração SSH</h1>
+
+    <h2 class="section-title">Índice:</h2>
+    <div class="central-container">
+      <ol>
+        <li><a href="#sensor-arduino">Sensor Arduino</a></li>
+        <li><a href="#servidor-captura-dados">Servidor para Captura de Dados</a></li>
+        <li><a href="#configuracao-site">Configuração do Site</a></li>
+        <li><a href="#utilizar-site">Como Utilizar o Site</a></li>
+      </ol>
+    </div>
+
+    <h2 class="section-title" id="sensor-arduino">Sensor Arduino:</h2>
+    <div class="central-container">
+      <ol>
+        <li>Desembale o kit e verifique se o conjunto do sensor se encontra em bom estado.</li>
+        <li>Ligue o sensor e o aloque no mesmo ambiente em que se encontra o quadro ou obra.</li>
+        <li>Após ligar o sensor, conecte-se a ele utilizando Bluetooth de um computador.</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title" id="servidor-captura-dados">Servidor para Captura de Dados:</h2>
+    <div class="central-container">
+      <ol>
+        <li>Após conectar os sensores aos computadores, instale o NPM e NodeJS nas máquinas que serão utilizadas:
+          <pre><code>sudo apt-get update
+sudo apt-get install npm
+sudo apt-get install nodejs</code></pre>
+        </li>
+        <li>Com a instalação já feita, execute o comando NPM START através do Shell do sistema:
+          <pre><code>npm start</code></pre>
+        </li>
+        <li>Para averiguar se o servidor foi iniciado com sucesso, verifique o terminal onde o NPM foi executado e veja se há erros.</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title" id="configuracao-site">Configuração do Site:</h2>
+    <div class="central-container">
+      <ol>
+        <li>Acesse nosso site <a href="http://www.SMArt.com">www.SMArt.com</a> e você será direcionado para a tela inicial.</li>
+        <li>Através do menu superior da página, acesse a tela de cadastro.</li>
+        <li>Preencha os campos corretamente conforme o indicado.</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title" id="utilizar-site">Como Utilizar o Site:</h2>
+    <div class="central-container">
+      <ol>
+        <li>Após realizar o cadastro, você será direcionado para a tela de login, na qual deverá inserir as mesmas informações que cadastrou.</li>
+        <li>Com o login feito, você será encaminhado para nossa tela de usuário, onde terá acesso a gráficos dos sensores, alertas sobre alterações de temperatura/umidade e também um sistema integrado com ChatBoot.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+
+</html>
+

@@ -11,7 +11,17 @@ function rota(valor){
     window.location.href = '../LoginCadastro/index.html';
   } if (valor == 'telaInicial'){
     window.location.href = '../telaInicial/index.html';
-  } else if (valor == 'telaAjuda'){
+  } else if (valor == 'manual'){
+    window.location.href = 'manuak.html'
+  }else if (valor == 'telaAjuda'){
     window.location.href = 'bobIA.html'
+  }else if (valor == 'dashboard'){
+    if(sessionStorage == null){
+      alert('É necessário fazer login antes')
+    }else {
+      window.location.href = 'dash.html'
+
+    }
+
   }
 }

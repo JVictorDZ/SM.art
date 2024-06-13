@@ -8,6 +8,8 @@ function rota(valor){
     window.location.href = '../LoginCadastro/index.html';
   } else if (valor == 'telaInicial'){
     window.location.href = '../telaInicial/index.html';
+  }else if (valor == 'manual'){
+    window.location.href = "../DashBoard/manuak.html";
   }
   
 }
